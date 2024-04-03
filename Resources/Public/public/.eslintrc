@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "airbnb-base"
+  ],
+  "root": true,
+  "rules": {
+    "class-methods-use-this": 0,
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^h$"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "{test,tests,spec,bin}/**",
+          "**/{__tests__,__mocks__}/**",
+          "**/*{.,_}{test,spec}.{js,jsx}",
+          "**/*rc.js",
+          "**/*.config.js"
+        ],
+        "optionalDependencies": false
+      }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "$el"
+        ]
+      }
+    ]
+  },
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "globals": {
+    "html": "readable",
+    "google": "readable"
+  },
+  "env": {
+    "browser": true
+  }
+}

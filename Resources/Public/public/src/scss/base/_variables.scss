@@ -1,0 +1,49 @@
+//****************************************************************************
+//  Bootsrap variables overrides
+//***************************************************************************/
+$font-family-sans-serif: 'Archivo', Arial, Helvetica, sans-serif;
+$font-primary: $font-family-sans-serif;
+$btn-box-shadow: none;
+
+//****************************************************************************
+//  Custom variables
+//***************************************************************************/
+$primary-color: #f49600;
+$secondary-color: #000;
+$gray-color: #9a9a9a;
+$gray-medium-color: #e6e6e6;
+$gray-light-color: #f6f6f6;
+$black-medium-color: #484848;
+$text-color: $secondary-color;
+$text-muted-color: $gray-color;
+$dark-primary-color: #e28b00;
+
+$input-color: $text-muted-color;
+$input-error-color: #dd4967;
+$white: #fff;
+
+// color theme
+$tag-color: #729CEF;
+$tag-hover-color: #4A7BDC;
+$tag-secndary-color: #FF7878;
+$tag-secndary-hover-color: #E94259;
+
+// dark thtme
+$body-color : #0A0B19;
+$dark-primary-hover-color: #707070;
+$dark-card: #1B1D30;
+$dark-mediumn-card: #373A50;
+
+//****************************************************************************
+//  Font Weight
+//***************************************************************************/
+$light-weight: 300;
+$regular-weight: 400;
+$semi-bold-weight: 600;
+$bold-weight: 700;
+$black-weight: 800;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+$grid-row-columns: 6 !default;
+

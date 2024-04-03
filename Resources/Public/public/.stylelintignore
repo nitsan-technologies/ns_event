@@ -1,0 +1,4 @@
+dist/**/*
+dist/assets/css/theme.bundle.css
+dist/assets/css/theme.bundle.css.map
+src/scss/plugin

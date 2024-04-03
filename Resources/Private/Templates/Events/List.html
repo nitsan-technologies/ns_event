@@ -1,0 +1,17 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="content">
+    <f:form.hidden name="basicListLayout" value="{settings.basicListLayout}" />
+    <f:form.hidden name="isFilter" value="{settings.radioFilter}" />
+    <f:if condition="{events}">
+        <f:then>
+            <div class="custom-container">
+                <div class="event-teaser__title">
+                    <h2><f:translate key="LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:eventlist" /></h2>
+                </div>
+            </div>
+            <f:render partial="Events/Classic" section="basicListLayoutSection" arguments="{_all}" />
+        </f:then>
+    </f:if>
+</f:section>
+</html>

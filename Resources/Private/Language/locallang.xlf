@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:ns_event/Resources/Private/Language/locallang.xlf" date="2021-12-07T17:17:47Z" product-name="ns_event">
+		<header/>
+		<body>
+			<trans-unit id="tx_nsevent_domain_model_events" resname="tx_nsevent_domain_model_events">
+				<source>Events</source>
+			</trans-unit>
+			<trans-unit id="tx_nsevent_domain_model_events.title" resname="tx_nsevent_domain_model_events.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_nsevent_domain_model_events.start_date" resname="tx_nsevent_domain_model_events.start_date">
+				<source>Start Date</source>
+			</trans-unit>
+			<trans-unit id="tx_nsevent_domain_model_events.end_date" resname="tx_nsevent_domain_model_events.end_date">
+				<source>End Date</source>
+			</trans-unit>
+			<trans-unit id="tx_nsevent_domain_model_events.teaser" resname="tx_nsevent_domain_model_events.teaser">
+				<source>Teaser Text</source>
+			</trans-unit>
+			<trans-unit id="tx_nsevent_domain_model_events.description" resname="tx_nsevent_domain_model_events.description">
+				<source>Description</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

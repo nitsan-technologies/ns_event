@@ -1,0 +1,61 @@
+<div class="column-item-sm-12 viewClass">
+
+<div class="noDecor rowView">
+    <div class="event-teaser">
+        <div class="columnView event-teaser__image">
+            <f:if condition="{event.posterImage}">
+                <f:then>
+                    <f:link.action action="show" pageUid="{settings.detailPageId}" arguments="{events : event}">
+                        <f:image image="{event.posterImage}" maxWidth="525" alt="{event.title}" />
+                        <f:if condition="{settings.calendarStyle} != 6">
+                            <div class="event-teaser__date calendar light-square calendar--left">
+                                <span class="date">
+                                    <f:format.date format="d-M-y">{event.startDate}</f:format.date>
+                                </span>
+                        </div>
+                        </f:if>
+                    </f:link.action>
+                </f:then>
+                <f:else>
+                    <f:link.action action="show" pageUid="{settings.detailPageId}" arguments="{events : event}">
+                        <f:image src="EXT:ns_event/Resources/Public/Images/noimage.png" height="300c" class="no-image"
+                            alt="noimage" />
+                            <f:if condition="{settings.calendarStyle} != 6">
+                                <div class="event-teaser__date calendar light-square calendar--left">
+                                    <span class="date">
+                                        <f:format.date format="d-M-y">{event.startDate}</f:format.date>
+                                    </span>
+                                </div>
+                            </f:if>
+                    </f:link.action>
+                </f:else>
+            </f:if>
+        </div>        
+        <div class="columnView event-teaser__content">
+
+            <div class="event-teaser__content--transparent">
+                <f:if condition="{event.title}">
+                    <h3 class="h3">{event.title}</h3>
+                </f:if>
+            </div>
+            <f:if condition="{event.startDate} || {event.endDate}">
+                <p class="event-date">
+                    <f:if condition="{event.startDate}">
+                        <span>
+                            <f:format.date format="d.m.Y @h a">{event.startDate}</f:format.date> -
+                        </span>
+                    </f:if>
+                    <f:if condition="{event.endDate}">
+                        <span>
+                            <f:format.date format="d.m.Y @h a">{event.endDate}</f:format.date>
+                        </span>
+                    </f:if>
+                </p>
+            </f:if>
+            <f:link.action action="show" pageUid="{settings.detailPageId}" arguments="{events : event}">
+                <button class="button button--primary" style="background-color: 000000"><f:translate key="LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:showmore" /></button>
+            </f:link.action>
+        </div>
+    </div>
+</div>
+</div>

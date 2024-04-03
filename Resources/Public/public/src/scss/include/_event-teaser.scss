@@ -1,0 +1,693 @@
+/*******************************************************************************
+* Event Teaser
+*******************************************************************************/
+.tx-ns-event {
+  .row--str.date--postion {
+    .event-teaser {
+      .calendar--center {
+        .event-teaser__content--transparent {
+          .event-teaser__date {
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  .row--str {
+    .event-teaser {
+      .event-teaser__content.calendar--center {
+        padding-left: 40px;
+
+        .event-teaser__content--transparent {
+          display: block;
+
+          .event-teaser__date {
+            top: 0;
+            left: 50%;
+          }
+        }
+      }
+
+      .event-teaser__content.calendar--right {
+        padding-left: 40px;
+
+        .event-teaser__content--transparent {
+          .event-teaser__date {
+            left: auto;
+            right: 0;
+            top: 0;
+          }
+        }
+      }
+
+      .event-teaser__content.calendar--left {
+        padding-left: 40px;
+
+        .event-teaser__content--transparent {
+          .event-teaser__date {
+            left: 0;
+            margin-right: 15px;
+            order: 0;
+            position: relative;
+            top: 0;
+          }
+
+          h3 {
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+
+  // two column to Row
+  .event-teaser {
+    background-color: $gray-light-color;
+    border: 1px solid $gray-medium-color;
+    color: $secondary-color;
+    display: block;
+    margin-bottom: 31px;
+    min-height: calc(100% - 31px);
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 100%;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      @extend %fontsize22;
+      font-weight: $regular-weight;
+    }
+
+    .light-square,
+    .light {
+      .date {
+        @extend %fontsize22;
+        color: $text-color;
+      }
+    }
+  }
+
+  .event-teaser__image {
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+
+    img {
+      min-height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .no-image {
+    width: auto;
+  }
+
+  .event-teaser__title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 38px;
+
+    h2 {
+      font-family: $font-primary;
+      font-weight: $bold-weight;
+      margin-bottom: 0;
+    }
+
+    .event-teaser__grid {
+      &.event-teaset--grid {
+        .event__grid {
+          fill: $primary-color;
+        }
+      }
+
+      &.event-teaset--row {
+        .event__row {
+          fill: $primary-color;
+        }
+      }
+
+      svg {
+        cursor: pointer;
+
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .event-teaser__content {
+    padding: 20px;
+
+    .button {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  .event-teaser__content--transparent {
+    @include flexbox;
+    @include align-items(center);
+    margin-bottom: 15px;
+    margin-right: 45px;
+
+    &.calendar--left {
+      .event-teaser__date {
+        left: 0;
+      }
+    }
+
+    .event-teaser__date {
+      // position: absolute;
+      top: 18px;
+    }
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .calendar--right {
+    .event-teaser__date {
+      border-right: 0;
+      margin-left: 15px;
+      order: 1;
+
+      &::after {
+        border-left: 2px solid $gray-color;
+        border-radius: 0;
+        border-right: transparent;
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
+
+    h3 {
+      margin-right: 15px;
+      order: 0;
+    }
+  }
+
+  .calendar--center {
+    display: block;
+
+    .event-teaser__date {
+      border-right: 0;
+      left: 50%;
+      margin-bottom: 20px;
+      position: relative;
+      transform: translateX(-50%);
+
+      &::after {
+        border-bottom: 2px solid $gray-color;
+        border-left: transparent;
+        border-radius: 0;
+        border-right: transparent;
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
+  }
+
+  .event-teaser__share {
+    @include flexbox;
+    margin: 15px 0;
+
+    h5 {
+      @extend %fontsize16;
+      color: $gray-color;
+      font-weight: $regular-weight;
+      margin-right: 20px;
+      margin-top: 0;
+    }
+
+    span {
+      font-size: 20px;
+      margin-right: 15px;
+    }
+  }
+
+  .event-date,
+  .event-location {
+    color: $text-color;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 25px;
+    position: relative;
+  }
+
+  .event-location::after,
+  .event-date::after {
+    @include watch($text-color);
+    content: '';
+    height: 14px;
+    left: 0;
+    position: absolute;
+    top: 6px;    
+    width: 14px;
+  }
+
+  .event-location::after {
+    @include location($text-color);
+    height: 17px;
+    width: 13px;
+  }
+
+  .event-categories {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
+  // row layout
+  .rowView {
+    margin-bottom: 30px;
+    position: relative;
+
+    .h3 {
+      @extend %fontsize22;
+      font-weight: $regular-weight;
+      margin: 0;
+    }
+
+    .event-teaser__content {
+      border: 1px solid $gray-medium-color;
+      width: 100%;
+    }
+
+    .event-teaser__date {
+      span {
+        color: $white;
+      }
+
+      .date,
+      .month {
+        @extend %fontsize20;
+      }
+    }
+  }
+
+  .button--icon {
+    cursor: pointer;
+    left: 50%;
+    margin-top: 103px;
+    position: relative;
+    transform: translateX(-50%);
+
+    svg {
+      margin-right: 15px;
+    }
+
+    &:hover {
+      background-color: $text-color;
+      border-radius: 8px;
+    }
+  }
+
+  .class--row {
+    .event-teaser__content {
+      position: relative;
+    }
+
+    .column-grid {
+      display: none;
+      margin-bottom: 15px;
+      margin-right: 15px;
+
+      .two-column {
+        margin-bottom: 8px;
+        margin-right: 8px;
+
+        @media (min-width: 767px) {
+          margin-bottom: 0;
+          margin-right: 0;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .show {
+      cursor: pointer;
+      display: block;
+
+      .active {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+  }
+
+  .row-grid--2 {
+    .row-structure {
+      .event-teaser__content {
+        padding-top: 40px;
+      }
+
+      .calendar--right.calendar.light-square,
+      .calendar--right.calendar.dark,
+      .calendar--right.calendar.vertical--icon {
+        left: auto;
+        right: 40px;
+        width: auto;
+      }
+
+      .calendar--right.calendar.light,
+      .calendar--right.calendar.vertical {
+        left: auto;
+        right: 40px;
+        width: 85px;
+      }
+
+      .calendar--right.vertical.vertical--icon.event-teaser__date {
+        left: auto;
+        right: 40px;
+        width: auto;
+      }
+
+      .calendar.light-square {
+        top: 18px;
+      }
+
+      .calendar--right.calendar.transparent {
+        left: 0;
+      }
+
+      .calendar--center.transparent {
+        margin-top: 0;
+      }
+    }
+
+    .calendar--right {
+      .event-teaser__date {
+        left: 0;
+        position: relative;
+        top: 0;
+      }
+    }
+
+    .calendar--left {
+      .event-teaser__date {
+        left: 0;
+        margin-left: 0;
+        margin-right: 15px;
+        position: relative;
+        top: 0;
+      }
+    }
+
+    .calendar--center {
+      .event-teaser__date {
+        left: 50%;
+        position: relative;
+        top: 0;
+      }
+    }
+
+    .vertical--icon,
+    .vertical {
+      @include flexbox;
+    }
+  }
+
+  .row-grid--3,
+  .row-grid--4 {
+    .vertical {
+      @include flexbox;
+    }
+  }
+}
+
+@media (min-width: 460px) {
+  .tx-ns-event {
+    .row--str {
+      .column-grid {
+        &:nth-child(3) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .tx-ns-event {
+    // two column to Row
+    .event-teaser__content {
+      padding: 30px 20px;
+    }
+
+    .row--str {
+      .two-colum-grid {
+        .event-teaser {
+          display: block;
+
+          .event-teaser__image,
+          .event-teaser__content {
+            width: 100%;
+          }
+
+          .event-teaser__content {
+            padding-left: 30px;
+          }
+
+          .event-teaser__date {
+            left: auto;
+            right: 25px;
+
+            &.calendar--left {
+              left: 35px;
+              right: auto;
+            }
+          }
+        }
+      }
+    }
+  } 
+}
+
+@media (min-width: 768px) {
+  .tx-ns-event {
+    // two column to Row
+    .event-teaser__content {
+      padding: 15px 30px;
+    }
+
+    .row-structure {
+      .event-teaser {
+        display: flex;
+      }
+
+      .event-teaser__image {
+        object-fit: cover;
+        width: 40%;
+      }
+
+      .event-teaser__content {
+        padding-left: 110px;
+        width: 60%;
+      }
+
+      .event-teaser__date {
+        right: auto;
+        top: 15px;
+      }
+
+      .calendar--center {
+        left: 50%;
+      }
+
+      .event-teaser__content.calendar--left {
+        padding-left: 145px;
+      }
+    }
+    // row layout
+    .rowView.twocol-to-row .event-teaser,
+    .row--str .event-teaser,
+    .row-grid--4 .row--view,
+    .row-grid--3 .row--view {
+      @include flexbox;
+
+      .event-teaser__image {
+        object-fit: cover;
+        width: 40%;
+      }
+
+      .event-teaser__content {
+        border: 0;
+        width: 60%;
+      }
+
+      .event-teaser__date.light-square {
+        top: 18px;
+      }
+
+      .event-teaser__date.light-square.calendar--center { 
+        left: 50%;
+      }
+    }
+
+    .rowView.twocol-to-row .event-teaser,
+    .row-grid--4 .row--view .calendar--right,
+    .row-grid--3 .row--view .calendar--right {
+      left: auto;
+      right: 40px;
+    }
+
+    .rowView.twocol-to-row .event-teaser,
+    .row-grid--4 .row--view .calendar--center,
+    .row-grid--3 .row--view .calendar--center {
+      left: 50%;
+    }
+
+    .row-grid--3 .row--view .calendar--center {
+      .transparent {
+        margin: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+    .row-grid--2,
+    .row-grid--3 {
+      .calendar--left {
+        .event-teaser__date.transparent {
+          left: 0;
+          margin-right: 15px;
+          top: 0;
+        }
+      }
+    }
+
+    .date--postion {
+      .calendar--left {
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .tx-ns-event {
+    .row--str .event-teaser,
+    .row-structure {
+      .event-teaser__content {
+        margin: auto;
+        padding-left: 180px;
+
+        .event-categories {
+          margin: 15px 0;
+        }
+      }
+    }
+
+    
+    .row-structure {
+      .event-teaser__content.calendar--left {
+        padding-left: 160px;
+      }
+    }
+  } 
+}
+
+// dark theme
+
+.dark--theme {
+  .event-teaser__title {
+    h2 {
+      color: $white;
+    }
+  }
+  
+  .event-teaser {
+    background-color: $dark-card;
+    border: 1px solid $dark-mediumn-card;
+    
+    h3 {
+      color: $white;
+    }
+
+    &:hover {
+      background-color: $primary-color;
+
+      .event-teaser__share {
+        h5 {
+          color: $white;
+        }
+      }
+
+      .calendar.transparent {
+        .date {
+          color: $white;
+        }
+      }
+    }
+
+    .event-teaser__content {
+      color: $white;
+    }
+
+    .event-date,
+    .event-location {
+      color: $white;
+    }
+
+    .event-teaser__content--transparent {
+      h3 {
+        color: $white;
+      }
+    }
+  }
+
+  .event-location::after,
+  .event-date::after {
+    @include watch($white);
+  }
+
+  .event-location::after {
+    @include location($white);
+  }
+}
+
+.four-column {
+  .event-teaser {
+    .event-teaser__date {
+      span {
+        margin-top: -19px;
+      }
+    }
+  }
+}
+
+.tui-full-calendar-icon {
+  display: none !important;
+}
+
+.tui-full-calendar-popup-delete {
+  .tui-full-calendar-content {
+    color: $dark-primary-color;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.eventsLoadMore {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0 15px;
+}
+
+.tx-ns-event .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.tx-ns-event .loader img {
+  width: 64px;
+  height: 64px;
+}
+
+.tx-ns-event .event-teaser {
+  display: block;
+  width: 100%;
+  min-height: calc(100% - 30px);
+  margin-bottom: 30px;
+  background-color: #fcfcfc;
+}
+
+.tx-ns-event .no-image {
+  width: auto;
+}
+
+.tx-ns-event .event-teaser__content {
+  padding: 24px 30px;
+}
+
+.tx-ns-event .event-date,
+.tx-ns-event .event-location {
+  position: relative;
+  padding-left: 25px;
+}
+
+.tx-ns-event .event-location::after,
+.tx-ns-event .event-date::after {
+  content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2014.33%2014.33%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20data-name%3D%22Group%20880%22%3E%3Cpath%20d%3D%22M7.165%2014.33A7.165%207.165%200%20100%207.165a7.166%207.166%200%20007.165%207.165zM6.653%203.071a.512.512%200%20111.024%200v3.848l2.367%201.894a.512.512%200%2001-.32.911.5.5%200%2001-.32-.113L6.845%207.564a.514.514%200%2001-.192-.4V3.071z%22%20data-name%3D%22Path%2015302%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.tx-ns-event .event-location::after {
+  content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012.78%2017.31%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6.39%200A6.519%206.519%200%20000%206.626a6.813%206.813%200%2000.862%203.325%206.679%206.679%200%2000.437.679l4.814%206.679h.555l4.814-6.679a6.692%206.692%200%2000.437-.679%206.813%206.813%200%2000.862-3.325A6.519%206.519%200%20006.39%200zm0%208.824a2.162%202.162%200%2001-2.119-2.2%202.121%202.121%200%20114.238%200%202.162%202.162%200%2001-2.119%202.2z%22%20data-name%3D%22Path%2015301%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.tx-ns-event .event-categories {
+  margin-bottom: 0;
+}
+.tx-ns-event .event-categories span {
+  background-color: #9a9a9a;
+  padding: 6px 12px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  border-radius: 4px;
+  margin-right: 5px;
+}

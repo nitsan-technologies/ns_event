@@ -1,0 +1,21 @@
+<f:section name="basicListLayoutSection">
+    <div class="paddingTopBottom">
+        <div class="custom-container">
+            <div class="gridView class--row">
+                <div class="ajaxresult row-column row-grid row--str">
+                    <f:render partial="Events/ArrayPagination" section="rowPagination" arguments="{_all}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+<f:section name="Date">
+    <span class="date">
+        <f:format.date format="%d">{event.startDate}</f:format.date>
+    </span> 
+    <span class="month">
+        <f:variable name="shortmonth"><f:format.date  format="%B">{event.startDate}</f:format.date></f:variable>
+        <f:format.crop maxCharacters="3" append="">{shortmonth}</f:format.crop>
+    </span>
+</f:section>

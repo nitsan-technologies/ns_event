@@ -1,0 +1,29 @@
+{
+    "name": "nitsan/ns-event",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 Event Manager is a full-featured events management extension that lets you create multiple events and get them listed on your website. TYPO3  Event manager provides a user-friendly interface that allows you to effortlessly create and customize events. Specify event details such as date, time, location, ticket types, and more in a matter of minutes.",
+    "authors": [],
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://t3planet.com/typo3-page-comment-extension",
+    "require": {
+        "typo3/cms-core": "^11 || ^12"
+    },
+    "autoload": {
+        "psr-4": {
+            "NITSAN\\NsEvent\\": "Classes"
+        }
+    },
+    "replace": {
+        "typo3-ter/ns-event": "self.version"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "extra": {
+        "typo3/cms": {
+            "web-dir": ".Build/public",
+            "extension-key": "ns_event"
+        }
+    }
+}

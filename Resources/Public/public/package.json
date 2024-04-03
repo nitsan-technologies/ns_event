@@ -1,0 +1,51 @@
+{
+  "name": "optima",
+  "version": "1.0.0",
+  "description": "get ready for 100 years of optima",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "del-cli dist && webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "run-p -sc lint:**",
+    "lint:javascripts": "eslint --ext .js --ext .jsx .",
+    "lint:stylesheets": "stylelint --syntax scss src/**/*.scss"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.26",
+    "flickity": "^3.0.0",
+    "flickity-fullscreen": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/runtime": "^7.14.6",
+    "@namics/stylelint-bem": "^6.3.4",
+    "autoprefixer": "^9.8.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-htm": "^3.0.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^3.6.0",
+    "del-cli": "^3.0.1",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-babel-module": "5.3.1",
+    "eslint-plugin-import": "^2.23.4",
+    "handlebars-webpack-plugin": "^1.8.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-scss": "^3.19.0",
+    "terser-webpack-plugin": "^3.0.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-fix-style-only-entries": "^0.5.1"
+  }
+}

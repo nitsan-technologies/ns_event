@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:ns_event/Resources/Private/Language/locallang_db.xlf" date="2021-12-07T17:17:47Z" product-name="ns_event">
+		<header/>
+		<body>
+            <trans-unit id="recordsPerPage" resname="recordsPerPage">
+				<source>Records Per Page</source>
+			</trans-unit>
+			<trans-unit id="detailPageId" resname="detailPageId">
+				<source>Detail Page</source>
+			</trans-unit>
+			<trans-unit id="eventsummary" resname="eventsummary">
+				<source>Event Summary</source>
+			</trans-unit>
+			<trans-unit id="datetime" resname="datetime">
+				<source>Event Date &amp; Time</source>
+			</trans-unit>
+			<trans-unit id="lastdate" resname="lastdate">
+				<source>Last Date Of Registration </source>
+			</trans-unit>
+			<trans-unit id="location" resname="location">
+				<source>Event Location </source>
+			</trans-unit>
+			<trans-unit id="additionaldetails" resname="additionaldetails">
+				<source>Additional Details</source>
+			</trans-unit>
+			<trans-unit id="eventlist" resname="eventlist">
+				<source>Event List</source>
+			</trans-unit>
+			<trans-unit id="showmore" resname="showmore">
+				<source>Show More</source>
+			</trans-unit>
+			<trans-unit id="eventlist" resname="eventlist">
+				<source>Event List</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

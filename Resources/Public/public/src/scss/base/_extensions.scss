@@ -1,0 +1,116 @@
+//****************************************************************************
+//  Font sizes extensions
+//***************************************************************************/
+%fontsize50 {
+  font-size: 34px;
+  line-height: 40px;
+}
+
+%fontsize30 {
+  font-size: 26px;
+  line-height: 32px;
+}
+
+%fontsize26 {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+%fontsize22 {
+  font-size: 19px;
+  line-height: 25px;
+}
+
+%fontsize20 {
+  font-size: 17px;
+  line-height: 22px;
+}
+
+%fontsize19 {
+  font-size: 19px;
+  line-height: 26px;
+}
+
+%fontsize18 {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+%fontsize16 {
+  font-size: 15px;
+  line-height: 26px;
+}
+
+%fontsize14 {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+%fontsize13 {
+  font-size: 13px;
+  line-height: 17px;
+}
+
+@media (min-width: 768px) {
+  %fontsize50 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  %fontsize30 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  %fontsize26 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  %fontsize22 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  %fontsize20 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media (min-width: 992px) {
+  %fontsize50 {
+    font-size: 50px;
+    line-height: 62px;
+  }
+
+  %fontsize30 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  %fontsize26 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  %fontsize22 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  %fontsize20 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  %fontsize18 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  %fontsize16 {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}

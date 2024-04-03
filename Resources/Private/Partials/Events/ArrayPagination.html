@@ -1,0 +1,41 @@
+<f:section name="rowPagination">
+    <f:for each="{paginator.paginatedItems}" as="event" iteration="i">
+        <f:render partial="Events/Row/RowView" arguments="{_all}" />
+    </f:for>
+    <f:render section="arrayPagination" arguments="{_all}" />
+</f:section>
+
+<f:section name="arrayPagination">
+    <div class="column-item-md-12" id="loadMoreRow">
+        <f:if condition="{pagination.nextPageNumber} <= {pagination.lastPageNumber}">
+            <ul class="ns-pagination dflex">
+                
+                <li class="{f:if(condition: '{paginator.currentPageNumber} == {page}', then: 'disabled', else: '')}">
+                    <f:if condition="{paginator.currentPageNumber} != 1">
+                        <a href="{f:uri.action(action:'list', arguments:{currentPage: pagination.previousPageNumber})}" class="article-load-more">Previous</a>
+
+                    </f:if>
+                </li>
+               
+                <f:for each="{pagination.allPageNumbers}" as="page">                            
+                    <li class="{f:if(condition: '{paginator.currentPageNumber} == {page}', then: 'current active', else: '')}">
+                        <f:if condition="{page} > 1">
+                        <f:then>
+                            <a href="{f:uri.action(action:'list', arguments:{currentPage: page})}" class="article-load-more ">{page}</a>
+                        </f:then>
+                        <f:else>
+                            <a href="{f:uri.action(action:'list', arguments:{currentPage: page})}" class="article-load-more">{page}</a>
+                        </f:else>
+                        </f:if>
+                    </li>
+                    </f:for>
+                <li class="{f:if(condition: '{paginator.currentPageNumber} == {pagination.lastPageNumber}', then: 'disabled', else: '')}">
+                    <f:if condition="{paginator.currentPageNumber} != {pagination.lastPageNumber}">
+                        <a href="{f:uri.action(action:'list', arguments:{currentPage: pagination.nextPageNumber})}" class="article-load-more">Next</a>
+                    </f:if>
+                </li>
+               
+            </ul>
+        </f:if>
+    </div>
+</f:section>

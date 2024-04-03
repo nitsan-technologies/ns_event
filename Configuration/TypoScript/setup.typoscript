@@ -1,0 +1,53 @@
+plugin.tx_nsevent_pi1 {
+    view {
+        templateRootPaths.0 = EXT:ns_event/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_nsevent_pi1.view.templateRootPath}
+        partialRootPaths.0 = EXT:ns_event/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_nsevent_pi1.view.partialRootPath}
+        layoutRootPaths.0 = EXT:ns_event/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_nsevent_pi1.view.layoutRootPath}
+      
+    }
+}
+
+plugin.tx_nsevent_pi2 {
+    view {
+        templateRootPaths.0 = EXT:ns_event/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_nsevent_pi2.view.templateRootPath}
+        partialRootPaths.0 = EXT:ns_event/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_nsevent_pi2.view.partialRootPath}
+        layoutRootPaths.0 = EXT:ns_event/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_nsevent_pi2.view.layoutRootPath}
+      
+    }
+}
+
+# Module configuration
+module.tx_nsevent_web_nseventm1 {
+    persistence {
+        storagePid = {$module.tx_nsevent_m1.persistence.storagePid}
+    }
+    view {
+        templateRootPaths.0 = EXT:ns_event/Resources/Private/Backend/Templates/
+        templateRootPaths.1 = {$module.tx_nsevent_m1.view.templateRootPath}
+        partialRootPaths.0 = EXT:ns_event/Resources/Private/Backend/Partials/
+        partialRootPaths.1 = {$module.tx_nsevent_m1.view.partialRootPath}
+        layoutRootPaths.0 = EXT:ns_event/Resources/Private/Backend/Layouts/
+        layoutRootPaths.1 = {$module.tx_nsevent_m1.view.layoutRootPath}
+    }
+}
+
+lib.contentTitleReplace = TEXT
+lib.contentTitleReplace {
+    current = 1
+    stdWrap.replacement {
+        10 {
+            search = # #
+            replace = -
+            useRegExp = 1
+        }
+    }
+    case = lower
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ns_event/Configuration/TypoScript/page.typoscript">

@@ -1,0 +1,48 @@
+<T3DataStructure>
+    <sheets>
+        <listConfig>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:listConfig</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+					<settings.recordsPerPage>
+						<TCEforms>
+							<label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:recordsPerPage</label>
+							<config>
+								<type>number</type>
+								<range>
+									<lower>1</lower>
+								</range>
+								<default>5</default>
+							</config>
+						</TCEforms>
+					</settings.recordsPerPage>
+
+					<settings.detailPageId>
+						<TCEforms>
+							<label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:detailPageId</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.detailPageId>
+					
+                </el>
+			</ROOT>
+		</listConfig>
+    </sheets>
+</T3DataStructure>

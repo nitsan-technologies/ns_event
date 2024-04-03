@@ -1,0 +1,199 @@
+/****************************************************************************
+ * Fonts
+ ***************************************************************************/
+// Archivo Regular
+@font-face {
+  font-family: 'Archivo';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Archivo/Archivo-Regular.woff2') format('woff2'),
+    url('../fonts/Archivo/Archivo-Regular.woff') format('woff');
+}
+
+// Archivo Italic
+@font-face {
+  font-family: 'Archivo';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/Archivo/Archivo-Italic.woff2') format('woff2'),
+    url('../fonts/Archivo/Archivo-Italic.woff') format('woff');
+}
+
+// Archivo SemiBold
+@font-face {
+  font-family: 'Archivo';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Archivo/Archivo-SemiBold.woff2') format('woff2'),
+    url('../fonts/Archivo/Archivo-SemiBold.woff') format('woff');
+}
+
+// Archivo Bold
+@font-face {
+  font-family: 'Archivo';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Archivo/Archivo-Bold.woff2') format('woff2'),
+    url('../fonts/Archivo/Archivo-Bold.woff') format('woff');
+}
+
+// Archivo Black
+@font-face {
+  font-family: 'Archivo';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/Archivo/Archivo-Black.woff2') format('woff2'),
+    url('../fonts/Archivo/Archivo-Black.woff') format('woff');
+}
+
+/****************************************************************************
+  Body
+ ***************************************************************************/
+.t3terminal-product {
+  font-family: $font-primary;
+
+  p {
+    font-weight: $light-weight;
+    margin-bottom: 10px;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  figure {
+    margin: 0 0 15px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+}
+
+/****************************************************************************
+  Links
+ ***************************************************************************/
+.t3terminal-product {
+  @extend %fontsize16;
+
+  a {
+    @include transition(all, 0.2s, ease, 0s);
+    color: $primary-color;
+    display: block;
+    outline: none;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $secondary-color;
+    }
+
+    .dark--theme & {
+      &:hover,
+      &:focus {
+      color: $white;
+      }
+    }
+
+    span {
+      @include transition(all, 0.2s, ease, 0s);
+    }
+  }
+
+  strong,
+  b {
+    font-weight: $bold-weight;
+  }
+}
+
+.dark--theme {
+  .t3terminal-product {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: $white;
+    }
+
+    p {
+      color: $gray-medium-color;
+    }
+  }
+}
+/****************************************************************************
+  Headings
+ ***************************************************************************/
+.t3terminal-product {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: $text-color;
+    font-weight: $black-weight;
+  }
+
+  h1 {
+    @extend %fontsize50;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    @extend %fontsize30;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    @extend %fontsize26;
+    margin-bottom: 18px;
+  }
+
+  h4 {
+    @extend %fontsize22;
+  }
+
+  h5 {
+    @extend %fontsize20;
+  }
+
+  h6 {
+    @extend %fontsize18;
+  }
+}
+
+@media (min-width: 992px) {
+  .t3terminal-product {
+    h1 {
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+  }
+}

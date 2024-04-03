@@ -1,0 +1,14 @@
+page = PAGE
+page {
+    // Initiate all the css-together
+    includeCSS {
+        10 >
+        810 = EXT:ns_event/Resources/Public/public/dist/assets/css/theme.bundle.css
+    }
+
+    // Initiate all the js-together
+    includeJSFooter {
+        130 = EXT:ns_event/Resources/Public/public/dist/assets/js/vendor.bundle.js
+        140 = EXT:ns_event/Resources/Public/public/dist/assets/js/theme.bundle.js
+    }
+}

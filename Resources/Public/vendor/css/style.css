@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;1,800&display=swap");
+
+.tx-ns-event {
+  font-family: "Archivo", sans-serif;
+}
+
+.tx-ns-event p {
+  color: #000000;
+  margin-bottom: 10px;
+  font-family: "Archivo", sans-serif;
+}
+
+.tx-ns-event img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.tx-ns-event figure {
+  margin: 0 0 15px;
+}
+
+.tx-ns-event ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/****************************************************************************
+    Links
+   ***************************************************************************/
+.tx-ns-event a {
+  transition: all, 0.2s, ease, 0s;
+  color: inherit;
+  outline: none;
+  font-family: #5ba8ff;
+  display: inline-block;
+}
+
+.tx-ns-event a:hover,
+.tx-ns-event a:focus {
+  color: #5ba8ff;
+  text-decoration: none;
+}
+
+.tx-ns-event button:focus,
+.tx-ns-event a:focus,
+.tx-ns-event .btn:focus,
+.tx-ns-event .btn.focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.tx-ns-event strong,
+.tx-ns-event b {
+  font-weight: 600;
+}
+
+/****************************************************************************
+    Headings
+   ***************************************************************************/
+.tx-ns-event h1,
+.tx-ns-event h2,
+.tx-ns-event h3,
+.tx-ns-event h4,
+.tx-ns-event h5,
+.tx-ns-event h6,
+.tx-ns-event .h1,
+.tx-ns-event .h2,
+.tx-ns-event .h3,
+.tx-ns-event .h4,
+.tx-ns-event .h5,
+.tx-ns-event .h6 {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  color: #000000;
+}
+
+.tx-ns-event h1,
+.tx-ns-event .h1 {
+  font-size: 22px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+
+.tx-ns-event h2,
+.tx-ns-event .h2 {
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+
+.tx-ns-event h3,
+.tx-ns-event .h3 {
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+  .tx-ns-event p {
+    margin-bottom: 15px;
+  }
+
+  .tx-ns-event h1,
+  .tx-ns-event .h1 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .tx-ns-event h2,
+  .tx-ns-event .h2 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .tx-ns-event h3,
+  .tx-ns-event .h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  .tx-ns-event p {
+    margin-bottom: 18px;
+  }
+
+  .tx-ns-event h1,
+  .tx-ns-event .h1 {
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 24px;
+  }
+
+  .tx-ns-event h2,
+  .tx-ns-event .h2 {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  .tx-ns-event h3,
+  .tx-ns-event .h3 {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.tx-ns-event .btn {
+  background-color: #000;
+  border: 1px solid #000;
+  color: #fff;
+  font-size: 16px;
+  line-height: 28px;
+  border-radius: 0;
+  transition: all 0.3s ease 0s;
+}
+
+.tx-ns-event .btn:hover,
+.tx-ns-event .btn:focus,
+.tx-ns-event .btn.focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: #000;
+}
+
+.custom-container {
+  max-width: 1404px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.row-grid--2 .column-item {
+  max-width: 50%;
+  flex: 0 0 50%;
+  padding: 0 15px;
+}

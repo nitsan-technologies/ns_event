@@ -1,0 +1,352 @@
+/**************************************************************************
+* Events Slider
+***************************************************************************/
+.t3terminal-product {
+  .slider-data {
+    h5 {
+      @extend %fontsize30;
+      color: $text-color;
+      font-weight: $regular-weight;
+      margin-bottom: 62px;
+      margin-top: 62px;
+      text-align: center;
+    }
+
+    .evnet-onlinePlatform {
+      .h3 {
+        @extend %fontsize22;
+        font-weight: $regular-weight;
+      }
+    }
+  }
+
+  .event-teaser {
+    .event-teaser__share {
+      h5 {
+        margin: 0;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .main-carousel-simple {
+    .event-teaser {
+      &:hover {
+        background-color: $gray-light-color;
+        box-shadow: none;
+      }
+
+    }
+  }
+
+  .main-carousel-center {
+    .event-teaser {
+      &:hover {
+        background-color: $gray-light-color;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .main-carousel-overlay {
+    .event-teaser {
+      position: relative;
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      .event-teaser__share {
+        svg {
+          fill: $gray-color;
+  
+          .dark--theme & {
+            fill: $white;
+          }
+        }
+      }
+
+      .event-teaser__image {
+        height: 499px;
+        position: relative;
+
+        &::before {
+          background: rgb(9, 9, 121);
+          background: linear-gradient(180deg, rgba(9, 9, 121, 0) 5%, rgba(10, 29, 52, 1) 100%);
+          content: '';
+          height: 503px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+      }
+
+      .item-category {
+        margin-bottom: 0;
+      }
+    }
+
+    .event-teaser__content {
+      bottom: 0;
+      padding: 32px 43px;
+      position: absolute;
+      width: 100%;
+
+      h3,
+      .event-date,
+      .event-location {
+        color: $white;
+      }
+
+      .item-category {
+        background-color: $text-color;
+        margin-bottom: 10px;
+      }
+
+      .button--link {
+        color: $white !important;
+
+        &::after {
+          @include arrow($white);
+        }
+      }
+    }
+  }
+
+  .main-carousel-simple,
+  .main-carousel-center,
+  .main-carousel-overlay {
+    .carousel-cell {
+      margin: 5px 15px 0;
+      width: 100%;
+    }
+  }
+}
+
+.main-carousel-overlay {
+  .event-teaser__image {
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+
+    img {
+      height: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.main-carousel-overlay .event-location::after,
+.main-carousel-overlay .event-date::after {
+  @include watch($white);
+  content: '';
+  height: 14px;
+  position: absolute;
+  width: 14px;
+  
+}
+
+.main-carousel-overlay .event-location::after {
+  @include location($white);
+  height: 17px;
+  width: 13px;
+}
+
+.main-carousel-overlay {
+  .evnet-onlinePlatform .h3,
+  .event-teaser__share h5{
+    color: $white;
+  }
+}
+
+.carousel.main-carousel-overlay span.tag.ovalTag {
+  background-color: $secondary-color;
+
+  &:hover {
+    background-color: $black-medium-color;
+  }
+}
+
+h2.ce-headline-center {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .t3terminal-product {
+    .main-carousel-simple {
+      .carousel-cell {
+        margin: 0 15px;
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .t3terminal-product {
+    .main-carousel-simple {
+      .carousel-cell {
+        width: calc(32% - 5px);
+      }
+    }
+
+    .main-carousel-center {
+      .carousel-cell {
+        width: calc(50% - 15px);
+      }
+    }
+
+    .main-carousel-overlay {
+      .carousel-cell {
+        width: 70%;
+      }
+
+      .event-teaser__content {
+        @include flexbox;
+        @include justify-content(space-between);
+
+        .event-categories {
+          position: relative;
+        }
+
+        .event-teaser__content--transparent {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// dark theme
+.dark--theme {
+  .slider-data {
+    h5 {
+      color: $white;
+    }
+  }
+
+  .main-carousel-center,
+  .main-carousel-simple {
+    .event-teaser {
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+.extbase-debugger.extbase-debugger-floating {
+  margin-top: 100px;
+}
+
+.column-slideritem {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.flickity-prev-next-button.next {
+  right: -10px;
+}
+
+.flickity-prev-next-button.previous {
+  left: -10px;
+}
+
+.flickity-prev-next-button {
+  background: transparent;
+
+  .flickity-button-icon {
+    .dark--theme & {
+      color: $white;
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.flickity-page-dots button {
+  .dark--theme & {
+    background: rgba(246, 246, 246, 0.7);
+
+    &.is-selected {
+      background: $white;
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.flickity-fullscreen-button-view {
+  background: rgba(0, 0, 0, 0.2);
+  top: -35px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.flickity-fullscreen-button-exit {
+  background: rgba(246, 246, 246, 0.7);
+  right: 20px;
+  
+  &:hover {
+    background: rgba(246, 246, 246, 0.7);
+  }
+}
+
+.flickity-fullscreen-button-view,
+.flickity-fullscreen-button-exit {
+  height: 28px;
+  width: 28px;
+  transition: all 0.4s ease;
+
+  .flickity-button-icon {
+    left: 6px;
+    height: 17px;
+    top: 6px;
+    width: 17px;
+    transition: all 0.5s ease;
+  }
+
+  .dark--theme & {
+    background: $white;
+  }
+
+  &:hover {
+    .flickity-button-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.t3terminal-product .custome-carousel {
+  &.is-fullscreen {
+    padding-top: 50px;
+    padding-left: 15px;
+
+    .carousel-cell {
+      width: calc(100% - 15px);
+
+      @media (min-width: 992px) {
+        width: calc(32.50% - 10px);
+      }
+    }
+
+    .flickity-slider {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

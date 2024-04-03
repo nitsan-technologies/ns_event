@@ -1,0 +1,29 @@
+.loadMoreButton {
+  svg {
+    height: 12px;
+    margin-right: 12px;
+    width: 14px;
+  }
+}
+
+#loadMoreRow {
+  text-align: center;
+}
+
+.button.loadMoreButton {
+  background: $secondary-color;
+  display: inline-block;
+  margin-top: 112px;
+  padding: 13px 21px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  
+  &:hover {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+#loadMorePlaceHere {
+  text-align: center;
+}

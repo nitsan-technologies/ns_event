@@ -1,0 +1,507 @@
+/*******************************************************************************
+* General
+*******************************************************************************/
+.t3terminal-product {
+  .no-scrollbar {
+    overflow: hidden;
+  }
+
+  .bg-img {
+    @include bg-img;
+  }
+
+  .custom-container {
+    max-width: 1374px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .column-item {
+    padding: 0 15px;
+  }
+
+  .headline--block {
+    @extend %fontsize30;
+    font-family: $font-primary;
+    font-weight: $regular-weight;
+  }
+
+  .ns-pagination {
+    display: flex;
+    margin: 7px;
+
+    li {
+      a {
+        background-color: $gray-light-color;
+        border: 1px solid $gray-medium-color;
+        cursor: pointer;
+        margin-right: 8px;
+        padding: 5px 15px;
+        
+        &:hover,
+        &:focus {
+          color: $white;
+  
+          .dark--theme & {
+            color: $secondary-color !important;
+          }
+        }
+      }
+
+      &.current,
+      &.active {
+        a {
+          background-color: $primary-color;
+          color: $white;
+          
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  .wpel-demo-banner-wrapper {
+    margin-bottom: 25px;
+
+    .filter--buttons {
+      align-items: center;
+      display: flex;
+      width: 100%;
+
+      button {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .calendar {
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    height: 60px;
+    padding: 11px 13px;
+    position: absolute;
+    right: 18px;
+    text-align: center;
+    top: 18px;
+    transition: all 0.3s ease-in-out;
+    width: 70px;
+
+    span {
+      display: block;
+      font-weight: $bold-weight;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .date {
+      @extend %fontsize20;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .month {
+      @extend %fontsize13;
+      font-weight: $regular-weight;
+      text-transform: uppercase;
+      transition: all 0.3s ease-in-out;
+    }
+
+    @media (min-width: 992px) {
+      height: 70px;
+      width: 80px;
+    }
+
+  }
+
+  .calendar.light,
+  .calendar.transparent,
+  .calendar.light-square,
+  .calendar.dark {
+    .date {
+      @extend %fontsize20;
+      font-weight: $bold-weight;
+    }
+
+    .month {
+      @extend %fontsize19;
+      color: $text-color;
+    }
+  }
+
+  .calendar.light {
+    &::before {
+      background-color: $text-color;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      content: '';
+      height: 8px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .calendar.transparent {
+    align-items: center;
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    height: 70px;
+    width: 120px;
+
+    &::before {
+      content: '';
+      display: none;
+    }
+
+    &::after {
+      border-radius: 0;
+      border-right: 2px solid $gray-color;
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+
+    .month {
+      color: $gray-color;
+    }
+  }
+
+  .calendar.light-square {
+    border-radius: 0;
+    height: 40px;
+    left: 40px;
+    right: 0;
+    top: 18px;
+    width: 120px;
+
+    @media (min-width: 992px) {
+      height: 50px;
+      width: 145px;
+    }
+  }
+
+  .calendar.dark {
+    background-color: $text-color;
+    border-radius: 7px;
+    color: $white;
+    height: 35px;
+    left: 40px;
+    opacity: 0.75;
+    padding: 7px 13px;
+    right: 0;
+    width: 130px;
+
+    .month {
+      color: $white;
+    }
+
+    @media (min-width: 992px) {
+      height: 43px;
+      width: 145px;
+    }
+  }
+
+  .vertical {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    background-color: $text-color;
+    height: 60px;
+    left: 35px;
+    opacity: 0.7;
+    width: 80px;
+
+    span {
+      @extend %fontsize18;
+      color: $white;
+      font-weight: $semi-bold-weight;
+
+      @media (min-width: 992px) {
+        margin-right: 5px;
+      }
+    }
+
+    .month {
+      @extend %fontsize18;
+    }
+
+    @media (min-width: 992px) {
+      width: 90px;
+    }
+  }
+
+  .vertical--icon {
+    left: auto;
+    right: 40px;
+    width: 120px;
+
+    &::before {
+      content: '';
+      display: none;
+    }
+    
+    &::after {
+      @include calendar-icon($white);
+      content: '';
+      height: 16px;
+      left: 15px;
+      position: absolute;
+      width: 16px;
+    }
+
+    .date {
+      margin-left: 35px;
+    }
+  }
+
+  .vertical-icon {
+    height: 80px;
+    width: 75px;
+
+    @media (min-width: 992px) {
+      height: 95px;
+      width: 90px;
+    }
+  }
+
+  .calendar.calendar--right {
+    left: auto;
+    right: 25px;
+  }
+
+  .calendar.calendar--left {
+    left: 25px;
+    right: auto;
+  }
+
+  .calendar.calendar--center {
+    left: 50%;
+    top: 18px;
+    transform: translateX(-50%);
+  }
+
+  .tag {
+    background-color: $black-medium-color;
+    border-radius: 4px;
+    color: $white;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 13px;
+    margin-right: 12px;
+    padding: 6px 20px;
+
+    &:hover {
+      color: $white;
+    }
+  }
+  
+  .ovalTag,
+  .roundedCornerTag {
+    background-color: $gray-color;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $black-medium-color;
+      color: $white;
+    }
+  }
+
+  .squareTag {
+    background-color: $text-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $black-medium-color;
+      color: $white;
+    }
+  }
+
+  .ovalTag {
+    border-radius: 13px;
+    padding: 4px 20px;
+  }
+
+  .modal {
+    display: block;
+  }
+}
+
+// calendar
+
+.tui-full-calendar-dayname-date {
+  font-size: 20px !important;
+}
+
+.tui-full-calendar-dayname-name {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .tui-full-calendar-dayname-name {
+    display: contents;
+  }
+}
+
+// eventtopic
+
+.eventtopic h2,
+.sponcer h2 {
+  @extend %fontsize22;
+  margin-bottom: 0;
+}
+
+.contactperson--data {
+  h2 {
+    @extend %fontsize22;
+    margin-bottom: 0;
+  }
+}
+
+.current.active {
+  color: $secondary-color !important;
+}
+
+// light theme
+
+.light--theme,
+.dark--theme {
+  .ovalTag {
+    background-color: $gray-color;
+
+    &:hover {
+      background-color: $black-medium-color;
+    }
+  }
+
+  .roundedCornerTag {
+    background-color: $gray-color;
+
+    &:hover {
+      background-color: $black-medium-color;
+    }
+  }
+
+  .calendar.light {
+    &::before {
+      background-color: $secondary-color;
+    }
+  }
+
+  .calendar.dark {
+    background-color: $white;
+    
+    .date,
+    .month {
+      color: $body-color;
+    }
+  }
+
+  .calendar.light-square {
+    .month {
+      color: $secondary-color;
+    }
+  }
+
+  .vertical--icon {
+    &::after {
+      @include calendar-icon($white);
+    }
+  }
+
+  .calendar.transparent {
+    .date {
+      color: $primary-color;
+    }
+  }
+}
+
+// dark theme
+.event-teaser__date.calendar.vertical .month,
+.event-teaser__date.calendar.vertical .date {
+  color: $white;
+}
+
+.dark--theme {
+  background-color: $body-color;
+
+  .wpel-demo-banner-area {
+    h1,
+    p {
+      color: $white;
+    }
+  }
+}
+
+.event-teaser {
+  .event-teaser__date {
+    span {
+      text-transform: uppercase;
+      margin-right: 0;
+    }
+  }
+}
+
+.custome-carousel {
+  .event-teaser {
+    .event-teaser__content {
+      .calendar--left {
+        .transparent {
+          left: 0;
+        }
+      }
+
+      .calendar--center {
+        .transparent {
+          position: absolute;
+         }
+      }
+    }
+  }
+
+  &.main-carousel-overlay {
+    .calendar--left {
+      .transparent {
+        position: relative;
+      }
+    }
+  }
+}
+
+.custom-container {
+  +.paddingTopBottom {
+    +.custom-container {
+      padding-top: 25px;
+    }
+  }
+}
+
+.d-none {
+  display: none !important;
+}
+
+.dark--theme {
+  .tx-ns-event  .event-teaser__share {
+    h5 {
+      color: $white;
+    }
+
+    svg {
+      fill: $white;
+    }
+  }
+}

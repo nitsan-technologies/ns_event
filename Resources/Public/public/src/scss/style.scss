@@ -1,0 +1,44 @@
+//* This is the main application stylesheet. It should include or import all
+//* custom and vendor stylesheets.
+
+//****************************************************************************
+//  Include our own variables and the ones that override the Bootstrap variables
+//  Always include this file first
+//***************************************************************************/
+@import 'base/variables';
+
+//****************************************************************************
+//  Include a custom build of the Plugin SCSS files.
+//***************************************************************************/
+@import '~flickity/dist/flickity.min.css';
+@import '~flickity-fullscreen/fullscreen.css';
+@import '~@fancyapps/ui/dist/fancybox.css';
+//****************************************************************************
+//  Include base styles
+//***************************************************************************/
+@import 'mixins/mixins';
+@import 'base/extensions';
+@import 'base/typography';
+
+//****************************************************************************
+//  Include plugins styles
+//***************************************************************************/
+@import 'plugin/font-awesome';
+
+//****************************************************************************
+//  Include our custom styles
+//***************************************************************************/
+@import 'include/general';
+@import 'include/button';
+@import 'include/form';
+@import 'include/event-teaser';
+@import 'include/isotope';
+@import 'include/slider';
+@import 'include/event-details';
+@import 'include/search';
+@import 'include/loadmore';
+
+//****************************************************************************
+//  Include our custom Grid styles
+//***************************************************************************/
+@import 'grid/custom-grid';

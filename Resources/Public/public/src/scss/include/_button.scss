@@ -1,0 +1,169 @@
+/*******************************************************************************
+* Button
+*******************************************************************************/
+.t3terminal-product {
+  .button {
+    @extend %fontsize16;
+    @include transition(all, 0.4s, ease, 0s);
+    @include inline-block();
+    @include box-shadow(none);
+    background-color: $secondary-color;
+    border: 0;
+    border-radius: 0;
+    color: $white;
+    cursor: pointer;
+    margin: 0;
+    outline: none;
+    outline: 0;
+    padding: 8px 15px;
+    text-shadow: none;
+    white-space: normal;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.focus {
+      background-color: $black-medium-color;
+    }
+  }
+
+  .button--secondary,
+  .button--primary {
+    background-color: $text-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $black-medium-color !important;
+      color: $white !important;
+    }
+  }
+
+  .button--secondary {
+    border-radius: 25px;
+  }
+
+  .button--rounded,
+  .button--tertiary {
+    background-color: $secondary-color;
+    border: 1px solid $secondary-color;
+    color: $white;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $black-medium-color !important;
+      color: $white !important;
+    }
+  }
+
+  .button--rounded {
+    border-radius: 25px;
+  }
+
+  .button--link {
+    background-color: transparent !important;
+    border: 0;
+    color: $secondary-color;
+    padding: 0 !important;
+    padding-right: 30px !important;
+    position: relative;
+
+    &::after {
+      @include arrow($secondary-color);
+      background-repeat: no-repeat;
+      content: '';
+      height: 14px;
+      margin-left: 13px;
+      position: absolute;
+      top: 8px;
+      right: 7px;
+      width: 14px;
+      transition: all 0.5s ease;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+
+      &::after {
+        right: 2px;
+      }
+    }
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  .button-group {
+    .button {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+.tx-ns-event.t3terminal-product {
+  .button.button-none {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .t3terminal-product {
+    .button {
+      padding: 9px 25px;
+    }
+  }
+}
+
+// light theme
+.light--theme {
+  .button--primary {
+    background-color: $primary-color;
+  }
+}
+
+.dark--theme {
+  .button--primary,
+  .button--secondary {
+    background-color: $white;
+    color: $body-color;
+
+    &:hover {
+      background-color: $dark-primary-hover-color;
+    }
+  }
+
+  .button--rounded,
+  .button--tertiary {
+    border: 1px solid $white;
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $body-color;
+    }
+  }
+
+  .button--link {
+    color: $white !important;
+
+    &:hover,
+    &:focus {
+      background-color: transparent !important;
+
+      &::after {
+        right: 2px;
+      }
+    }
+
+    &::after {
+      @include arrow($white);
+    }
+  }
+}
+
+

@@ -42,7 +42,7 @@ class EventsController extends ActionController
     {
 
         $currentPage = 1;
-        $itemsPerPage = (int)$this->settings['recordsPerPage'];
+        $itemsPerPage = (int)$this->settings['recordsPerPage'] ?? 10;
         if ($this->getCurrentVersion() <= 10) {
             $response = GeneralUtility::_GET('tx_nsevent_pi1');
         } else {

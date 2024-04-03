@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace NITSAN\NsEvent\Domain\Repository;
 
-use Doctrine\DBAL\Exception;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -24,15 +20,16 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class EventsRepository extends Repository
 {
-    /**
-     * @param $searchData
-     * @return array
-     * @throws InvalidQueryException|Exception
-     */
-    public function filterSearch(): array
-    {
-        $result = $this->createQuery()->execute()->toArray();
-        return $result;
-    }
 
+    public function fetchData($offset = null, $per_page = null)
+    {
+        $query =  $query = $this->createQuery();
+        if ($offset) {
+            $query->setOffset($offset);
+        }
+        if ($per_page) {
+            $query->setLimit($per_page);
+        }
+        return $query->execute();
+    }
 }

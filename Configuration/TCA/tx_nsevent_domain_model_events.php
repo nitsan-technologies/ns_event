@@ -1,5 +1,30 @@
 <?php
 
+$typo3VersionArray = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionStringToArray(
+    \TYPO3\CMS\Core\Utility\VersionNumberUtility::getCurrentTypo3Version()
+);
+
+if (version_compare((string)$typo3VersionArray['version_main'], '11', '>=')) {
+    $languageConfig = [
+        'type' => 'language',
+    ];
+} else {
+    $languageConfig = [
+        'type' => 'select',
+        'renderType' => 'selectSingle',
+        'special' => 'languages',
+        'items' => [
+            [
+                'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                -1,
+                'flags-multiple'
+            ]
+        ],
+        'default' => 0,
+    ];
+}
+    
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_nsevent_domain_model_events',
@@ -27,7 +52,7 @@ return [
         '1' => [
             'showitem' => '
                 title, 
-                --palette--;;configPalette,
+                --palette--;;datePalette,
                 poster_image, 
                 teaser, 
                 description, 
@@ -41,13 +66,17 @@ return [
                     endtime, 
             '],
     ],
+    'palettes' => [
+        'datePalette' => [
+            'showitem' => 'start_date, end_date',
+        ],
+    ],
+
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:sLGL.language',
-            'config' => [
-                'type' => 'language',
-            ],
+            'config' => $languageConfig
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -210,15 +239,6 @@ return [
                 'eval' => 'trim',
             ],
 
-        ],
-        'registration' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_nsevent_domain_model_events.registration',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'default' => 0,
-            ]
         ],
         'address' => [
             'exclude' => true,

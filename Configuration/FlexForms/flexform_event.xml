@@ -12,7 +12,8 @@
 						<TCEforms>
 							<label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:recordsPerPage</label>
 							<config>
-								<type>number</type>
+								<type>input</type>
+								<eval>int</eval>
 								<range>
 									<lower>1</lower>
 								</range>

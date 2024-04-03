@@ -15,9 +15,6 @@
 			<trans-unit id="datetime" resname="datetime">
 				<source>Event Date &amp; Time</source>
 			</trans-unit>
-			<trans-unit id="lastdate" resname="lastdate">
-				<source>Last Date Of Registration </source>
-			</trans-unit>
 			<trans-unit id="location" resname="location">
 				<source>Event Location </source>
 			</trans-unit>
@@ -32,6 +29,9 @@
 			</trans-unit>
 			<trans-unit id="eventlist" resname="eventlist">
 				<source>Event List</source>
+			</trans-unit>
+			<trans-unit id="recordStoragePage" resname="recordStoragePage">
+				<source>Record Storage Page</source>
 			</trans-unit>
 		</body>
 	</file>

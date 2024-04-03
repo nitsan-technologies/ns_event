@@ -5,12 +5,18 @@ defined('TYPO3_MODE') || defined('TYPO3') || die();
 $typo3VersionArray = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionStringToArray(
     \TYPO3\CMS\Core\Utility\VersionNumberUtility::getCurrentTypo3Version()
 );
+if (version_compare((string)$typo3VersionArray['version_main'], '9', '==')) {
+    $extName = 'NITSAN.NsEvent';
+    $eventsClass = 'Events';
+} else {
+    $extName = 'NsEvent';
+    $eventsClass = \NITSAN\NsEvent\Controller\EventsController::class;
+}
 
-$eventsClass = \NITSAN\NsEvent\Controller\EventsController::class;
 
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'NsEvent',
+    $extName,
     'Pi1',
     [
         $eventsClass => 'list, show',
@@ -21,7 +27,7 @@ $eventsClass = \NITSAN\NsEvent\Controller\EventsController::class;
     ]
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'NsEvent',
+    $extName,
     'Pi2',
     [
         $eventsClass => 'show',
@@ -41,6 +47,6 @@ foreach ($icons as $icon) {
     $iconRegistry->registerIcon(
         $icon,
         \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        ['source' => 'EXT:ns_event/Resources/Public/Icons/PluginIcon.png']
+        ['source' => 'EXT:ns_event/Resources/Public/Icons/PluginIcon.svg']
     );
 }

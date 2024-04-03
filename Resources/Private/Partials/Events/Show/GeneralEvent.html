@@ -1,24 +1,13 @@
 <section class="mainSection">
   <!-- Dialog Trigger -->
   <div class="custom-container">
-    <f:if condition="{settings.imagePosition} == fullwidth">
-      <f:if condition="{events.posterImage}">
-        <div class="row-grid">
-          <f:image image="{events.posterImage}" height="500c" class="p-0" alt="image" />
-        </div>
-      </f:if>
+    <f:if condition="{events.posterImage}">
+      <div class="row-grid">
+        <f:image image="{events.posterImage}" height="500c" class="p-0" alt="image" />
+      </div>
     </f:if>
     <div class="row-grid">
       <div class="column-item-lg-8 leftpart">
-        <f:if condition="{settings.imagePosition} != fullwidth">
-          <f:if condition="{events.posterImage}">
-            <div class="row-grid">
-              <div class="event__image">
-                <f:image image="{events.posterImage}" height="500c" class="p-0" alt="image" />
-              </div>
-            </div>
-          </f:if>
-        </f:if>
         <div class="event--details">
           <f:if condition="{events.title}">
             <h1 class="h2">{events.title}</h1>

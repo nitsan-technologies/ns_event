@@ -12,7 +12,7 @@ $EM_CONF['ns_event'] = [
     'version' => '11.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '11.0.0-12.5.99',
+            'typo3' => '9.5.0-12.5.99',
         ],
         'conflicts' => [],
         'suggests' => [],

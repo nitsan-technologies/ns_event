@@ -40,7 +40,7 @@
         
         &:hover,
         &:focus {
-          color: $white;
+          color: $secondary-color;
   
           .dark--theme & {
             color: $secondary-color !important;
@@ -488,6 +488,10 @@
       padding-top: 25px;
     }
   }
+}
+
+.pagination-link--disable {
+  pointer-events: none;
 }
 
 .d-none {

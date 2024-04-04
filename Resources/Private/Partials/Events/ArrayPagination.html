@@ -30,10 +30,10 @@
         <f:for each="{pages}" as="page" iteration="it">
           <f:if condition="{it.isFirst}">
             <f:if condition="1 < {page}">
-              <li>
-                <span
+              <li class="page-item">
+                <a href="javascript:;"
                   class="ns-page-link pagination-link pagination-link--disable"
-                  >…</span
+                  >…</a
                 >
               </li>
             </f:if>
@@ -60,9 +60,9 @@
           </f:if>
           <f:if condition="{it.isLast}">
             <f:if condition="{page}<{totalpage}">
-              <li>
-                <span
-                  class="ns-page-link pagination-link pagination-link--disable">…</span>
+              <li class="page-item">
+                <a href="javascript:"
+                  class="ns-page-link pagination-link pagination-link--disable">…</a>
               </li>
             </f:if>
           </f:if>

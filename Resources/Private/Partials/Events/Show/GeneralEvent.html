@@ -52,7 +52,7 @@
         <f:if condition="{events.address}">
           <h5><f:translate key="LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:location" /></h5>
           <p class="location-address">
-            {events.address}
+            {events.address -> f:format.nl2br()}
           </p>
         </f:if>
       </div>

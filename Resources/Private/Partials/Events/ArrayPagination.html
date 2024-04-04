@@ -40,7 +40,7 @@
           </f:if>
           <f:if condition="{page}=={currentPage}">
             <f:then>
-              <li class="page-item">
+              <li class="page-item current">
                 <a
                   class="ns-page-link active paginate pagination-link"
                   href="{f:uri.action(action:list, arguments:{currentPage: page, filterCategory:filterCategory})}"

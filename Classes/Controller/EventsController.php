@@ -42,58 +42,60 @@ class EventsController extends ActionController
     {
 
         $currentPage = 1;
-        $itemsPerPage = (int)$this->settings['recordsPerPage'];
+        $itemsPerPage = (int)$this->settings['recordsPerPage'] ?? 10;
         if ($this->getCurrentVersion() <= 10) {
             $response = GeneralUtility::_GET('tx_nsevent_pi1');
         } else {
             $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
         }
         if(!empty($response['currentPage'])) {
-            $currentPage = $response['currentPage'];
+            $currentPage = (int)$response['currentPage'];
         }
         $offset = ($currentPage-1) * $itemsPerPage;
         $allEvents = $this->eventsRepository->fetchData(); 
         $events = $this->eventsRepository->fetchData($offset, $itemsPerPage);
         $countEvents = count($allEvents);
-        $totalPage = ceil($countEvents / $itemsPerPage);
-        if ($currentPage > 1) {
-            $previous = $currentPage - 1;
-        }
-        if ($currentPage < $totalPage) {
-            $next = $currentPage + 1;
-        }
-        $pages = [];
-        for ($x = 1; $x<= $totalPage; $x++) {
-            $pages[] = $x;
-        }
-        $i = 0;
-        $modifiedObjects = [];
-        $indexMin = $currentPage - 5;  // -1  to show pages
-        $indexMax = $currentPage + 3; // -1  to show pages
-        foreach ($pages as $object) {
-            if ($i >= $indexMin && $i <= $indexMax) {
-                $modifiedObjects[] = $object;
-            }
-            $i++;
-        }
-        $previous = isset($previous) ? $previous : '';
-        $next = isset($next) ? $next : '';
+        
+        $this->initiatePagination($countEvents, $itemsPerPage, $currentPage);
 
         $this->view->assignMultiple(
             [
                 'events' => $events,
                 'settings' => $this->settings,
-                'totalpage' => $totalPage,
-                'previous' => $previous,
-                'next' => $next,
-                'pages' => $modifiedObjects,
-                'currentPage' => $currentPage,
             ]
         );
         
         if ($this->getCurrentVersion() >= 11) {
             return $this->htmlResponse();
         }
+    }
+
+    /**
+     * initiatePagination
+     *
+     * @param integer $countEvents
+     * @param integer $itemsPerPage
+     * @param integer $currentPage
+     * @return void
+     */
+    private function initiatePagination(int $countEvents, int $itemsPerPage, int $currentPage): void 
+    {
+        $totalPage = ceil($countEvents / $itemsPerPage);
+        $previous = ($currentPage > 1) ? $currentPage - 1 : '';
+        $next = ($currentPage < $totalPage) ? $currentPage + 1 : '';
+
+        $indexMin = max(1, $currentPage - 5);
+        $indexMax = min($totalPage, $currentPage + 3);
+
+        $pages = range($indexMin, $indexMax);   
+
+        $this->view->assignMultiple([
+            'totalpage' => $totalPage,
+            'previous' => $previous,
+            'next' => $next,
+            'pages' => $pages,
+            'currentPage' => $currentPage,
+        ]);
     }
 
     /**

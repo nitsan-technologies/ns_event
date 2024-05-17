@@ -19,7 +19,7 @@ if (version_compare((string)$typo3VersionArray['version_main'], '9', '==')) {
     $extName,
     'Pi1',
     [
-        $eventsClass => 'list, show',
+        $eventsClass => 'list',
     ],
     // non-cacheable actions
     [

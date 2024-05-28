@@ -18,7 +18,7 @@
             >
               <f:if condition="{currentPage} != 1">
                 <a
-                  href="{f:uri.action(action:'list', arguments:{currentPage: previous})}"
+                  href="{f:uri.action(action:'list', arguments:{currentPage: previous, pluginUid: data.uid})}"
                   class="article-load-more"
                   >Previous</a
                 >
@@ -43,7 +43,7 @@
               <li class="page-item current">
                 <a
                   class="ns-page-link active paginate pagination-link"
-                  href="{f:uri.action(action:list, arguments:{currentPage: page, filterCategory:filterCategory})}"
+                  href="{f:uri.action(action:list, arguments:{currentPage: page, pluginUid: data.uid})}"
                   >{page}</a
                 >
               </li>
@@ -52,7 +52,7 @@
               <li class="page-item">
                 <a
                   class="ns-page-link paginate pagination-link"
-                  href="{f:uri.action(action:list, arguments:{currentPage: page, filterCategory:filterCategory})}"
+                  href="{f:uri.action(action:list, arguments:{currentPage: page, pluginUid: data.uid})}"
                   >{page}
                 </a>
               </li>
@@ -74,7 +74,7 @@
             >
               <f:if condition="{currentPage} != {totalpage}">
                 <a
-                  href="{f:uri.action(action:'list', arguments:{currentPage: next})}"
+                  href="{f:uri.action(action:'list', arguments:{currentPage: next, pluginUid: data.uid})}"
                   class="article-load-more"
                   >Next</a
                 >

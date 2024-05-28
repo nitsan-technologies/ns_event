@@ -40,7 +40,9 @@ class EventsController extends ActionController
      */
     public function listAction()
     {
-
+        // @extensionScannerIgnoreLine
+        $configuration  = $this->configurationManager->getContentObject();
+        $data = $configuration->data;
         $currentPage = 1;
         $itemsPerPage = (int)$this->settings['recordsPerPage'] ?? 10;
         if ($this->getCurrentVersion() <= 10) {
@@ -51,17 +53,23 @@ class EventsController extends ActionController
         if(!empty($response['currentPage'])) {
             $currentPage = (int)$response['currentPage'];
         }
+        $response['pluginUid'] = $response['pluginUid'] ?? '';
+        if ($response['pluginUid'] != $data['uid']) {
+            $currentPage = 1;
+        }
+
         $offset = ($currentPage-1) * $itemsPerPage;
         $allEvents = $this->eventsRepository->fetchData(); 
         $events = $this->eventsRepository->fetchData($offset, $itemsPerPage);
         $countEvents = count($allEvents);
-        
+
         $this->initiatePagination($countEvents, $itemsPerPage, $currentPage);
 
         $this->view->assignMultiple(
             [
                 'events' => $events,
                 'settings' => $this->settings,
+                'data' => $data,
             ]
         );
         
@@ -120,8 +128,7 @@ class EventsController extends ActionController
                 $response = $this->request->getQueryParams()['tx_nsevent_pi2'];
             }
         }
-
-        if(!empty($response)) {
+        if(!empty($response['events'])) {
             $getEvent = $this->eventsRepository->findByUid((int)$response['events']);
 
             $this->view->assignMultiple([

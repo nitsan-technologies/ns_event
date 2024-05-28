@@ -1,24 +1,36 @@
-plugin.tx_nsevent_pi1 {
-    view {
-        templateRootPaths.0 = EXT:ns_event/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_nsevent_pi1.view.templateRootPath}
-        partialRootPaths.0 = EXT:ns_event/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_nsevent_pi1.view.partialRootPath}
-        layoutRootPaths.0 = EXT:ns_event/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_nsevent_pi1.view.layoutRootPath}
-      
+plugin {
+    tx_nsevent_pi1 {
+        view {
+            templateRootPaths {
+                0 = EXT:ns_event/Resources/Private/Templates/
+                1 = {$plugin.tx_nsevent_pi1.view.templateRootPath}
+            } 
+            partialRootPaths {
+                0 = EXT:ns_event/Resources/Private/Partials/
+                1 = {$plugin.tx_nsevent_pi1.view.partialRootPath}
+            }
+            layoutRootPaths {
+                0 = EXT:ns_event/Resources/Private/Layouts/
+                1 = {$plugin.tx_nsevent_pi1.view.layoutRootPath}
+            }
+        }
     }
-}
-
-plugin.tx_nsevent_pi2 {
-    view {
-        templateRootPaths.0 = EXT:ns_event/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_nsevent_pi2.view.templateRootPath}
-        partialRootPaths.0 = EXT:ns_event/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_nsevent_pi2.view.partialRootPath}
-        layoutRootPaths.0 = EXT:ns_event/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_nsevent_pi2.view.layoutRootPath}
-      
+    tx_nsevent_pi2 {
+        view {
+            templateRootPaths {
+                0 = EXT:ns_event/Resources/Private/Templates/
+                1 = {$plugin.tx_nsevent_pi2.view.templateRootPath}
+            }
+            partialRootPaths {
+                0 = EXT:ns_event/Resources/Private/Partials/
+                1 = {$plugin.tx_nsevent_pi2.view.partialRootPath}
+            }
+            layoutRootPaths {
+                0 = EXT:ns_event/Resources/Private/Layouts/
+                1 = {$plugin.tx_nsevent_pi2.view.layoutRootPath}
+            }
+        
+        }
     }
 }
 
@@ -28,12 +40,18 @@ module.tx_nsevent_web_nseventm1 {
         storagePid = {$module.tx_nsevent_m1.persistence.storagePid}
     }
     view {
-        templateRootPaths.0 = EXT:ns_event/Resources/Private/Backend/Templates/
-        templateRootPaths.1 = {$module.tx_nsevent_m1.view.templateRootPath}
-        partialRootPaths.0 = EXT:ns_event/Resources/Private/Backend/Partials/
-        partialRootPaths.1 = {$module.tx_nsevent_m1.view.partialRootPath}
-        layoutRootPaths.0 = EXT:ns_event/Resources/Private/Backend/Layouts/
-        layoutRootPaths.1 = {$module.tx_nsevent_m1.view.layoutRootPath}
+        templateRootPaths {
+            0 = EXT:ns_event/Resources/Private/Backend/Templates/
+            1 = {$module.tx_nsevent_m1.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:ns_event/Resources/Private/Backend/Partials/
+            1 = {$module.tx_nsevent_m1.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:ns_event/Resources/Private/Backend/Layouts/
+            1 = {$module.tx_nsevent_m1.view.layoutRootPath}
+        }
     }
 }
 

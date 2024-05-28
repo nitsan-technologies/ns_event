@@ -58,8 +58,8 @@ class EventsController extends ActionController
             $currentPage = 1;
         }
 
-        $offset = ($currentPage-1) * $itemsPerPage;
-        $allEvents = $this->eventsRepository->fetchData(); 
+        $offset = ($currentPage - 1) * $itemsPerPage;
+        $allEvents = $this->eventsRepository->fetchData();
         $events = $this->eventsRepository->fetchData($offset, $itemsPerPage);
         $countEvents = count($allEvents);
 
@@ -72,7 +72,7 @@ class EventsController extends ActionController
                 'data' => $data,
             ]
         );
-        
+
         if ($this->getCurrentVersion() >= 11) {
             return $this->htmlResponse();
         }
@@ -86,7 +86,7 @@ class EventsController extends ActionController
      * @param integer $currentPage
      * @return void
      */
-    private function initiatePagination(int $countEvents, int $itemsPerPage, int $currentPage): void 
+    private function initiatePagination(int $countEvents, int $itemsPerPage, int $currentPage): void
     {
         $totalPage = ceil($countEvents / $itemsPerPage);
         $previous = ($currentPage > 1) ? $currentPage - 1 : '';
@@ -95,7 +95,7 @@ class EventsController extends ActionController
         $indexMin = max(1, $currentPage - 5);
         $indexMax = min($totalPage, $currentPage + 3);
 
-        $pages = range($indexMin, $indexMax);   
+        $pages = range($indexMin, $indexMax);
 
         $this->view->assignMultiple([
             'totalpage' => $totalPage,
@@ -150,7 +150,7 @@ class EventsController extends ActionController
         $typo3VersionArray = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionStringToArray(
             \TYPO3\CMS\Core\Utility\VersionNumberUtility::getCurrentTypo3Version()
         );
-        
+
         return $typo3VersionArray['version_main'];
     }
 }

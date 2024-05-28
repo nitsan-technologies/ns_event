@@ -23,7 +23,7 @@ if (version_compare((string)$typo3VersionArray['version_main'], '11', '>=')) {
         'default' => 0,
     ];
 }
-    
+
 
 return [
     'ctrl' => [

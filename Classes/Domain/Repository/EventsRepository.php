@@ -20,7 +20,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class EventsRepository extends Repository
 {
-
     public function fetchData($offset = null, $per_page = null)
     {
         $query =  $query = $this->createQuery();

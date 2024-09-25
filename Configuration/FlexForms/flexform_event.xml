@@ -2,15 +2,12 @@
     <sheets>
         <listConfig>
 			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:listConfig</sheetTitle>
-				</TCEforms>
+				<sheetTitle>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:listConfig</sheetTitle>
 				<type>array</type>
 				<el>
 
 					<settings.recordsPerPage>
-						<TCEforms>
-							<label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:recordsPerPage</label>
+						<label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:recordsPerPage</label>
 							<config>
 								<type>input</type>
 								<eval>int</eval>
@@ -19,12 +16,10 @@
 								</range>
 								<default>5</default>
 							</config>
-						</TCEforms>
-					</settings.recordsPerPage>
+						</settings.recordsPerPage>
 
 					<settings.detailPageId>
-						<TCEforms>
-							<label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:detailPageId</label>
+					  <label>LLL:EXT:ns_event/Resources/Private/Language/locallang_flex.xlf:detailPageId</label>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -39,7 +34,6 @@
 									</suggest>
 								</wizards>
 							</config>
-						</TCEforms>
 					</settings.detailPageId>
 					
                 </el>

@@ -7,7 +7,7 @@ namespace NITSAN\NsEvent\Domain\Model;
 use TYPO3\CMS\Exebase\Persistence\ObjectStorage;
 
 /**
- * This file is part of the "NsEvent" Extension for TYPO3 CMS.
+ * This file is part of the "Event" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.

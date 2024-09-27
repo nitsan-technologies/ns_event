@@ -84,7 +84,7 @@ if (version_compare((string)$typo3VersionArray['version_main'], '11', '<')) {
         'exclude' => true,
         'label' => 'LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_nsevent_domain_model_events.poster_image',
        'config' => [
-                'minitems' => 1,
+                'maxitems' => 1,
                 'type' => 'file',
                 'allowed' => 'common-image-types',
        ],

@@ -52,7 +52,7 @@ class EventsController extends ActionController
         $currentPage = 1;
         $itemsPerPage = (int) $this->settings['recordsPerPage'] ?? 10;
         if ($this->getCurrentVersion() <= 10) {
-            $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? null;
+            $response = GeneralUtility::_GET('tx_nsevent_pi1');
         } else {
             $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
         }
@@ -124,16 +124,11 @@ class EventsController extends ActionController
         $response = [];
 
         if ($this->getCurrentVersion() <= 10) {
-
-            $queryParams = $this->request->getQueryParams();
-            $response = null;
-
-            if (!empty($queryParams['tx_nsevent_pi1'])) {
-                $response = $queryParams['tx_nsevent_pi1'];
-            } elseif (!empty($queryParams['tx_nsevent_pi2'])) {
-                $response = $queryParams['tx_nsevent_pi2'];
+            if(!empty(GeneralUtility::_GET('tx_nsevent_pi1'))) {
+                $response = GeneralUtility::_GET('tx_nsevent_pi1');
+            } elseif(!empty(GeneralUtility::_GET('tx_nsevent_pi2'))) {
+                $response = GeneralUtility::_GET('tx_nsevent_pi2');
             }
-
         } else {
             if (isset($this->request->getQueryParams()['tx_nsevent_pi1'])) {
                 $response = $this->request->getQueryParams()['tx_nsevent_pi1'];

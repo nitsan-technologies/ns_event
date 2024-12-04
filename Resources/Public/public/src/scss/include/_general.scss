@@ -28,15 +28,18 @@
 
   .ns-pagination {
     display: flex;
+    flex-wrap: wrap;
     margin: 7px;
 
     li {
+      margin-bottom: 10px;
+
       a {
         background-color: $gray-light-color;
         border: 1px solid $gray-medium-color;
         cursor: pointer;
         margin-right: 8px;
-        padding: 5px 15px;
+        padding: 4px 12px;
         
         &:hover,
         &:focus {

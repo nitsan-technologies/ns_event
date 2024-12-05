@@ -8,9 +8,10 @@ use Doctrine\DBAL\Exception;
 use NITSAN\NsEvent\Domain\Repository\EventsRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- * This file is part of the "NsEvent" Extension for TYPO3 CMS.
+ * This file is part of the "Event" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -28,10 +29,17 @@ class EventsController extends ActionController
      */
     protected EventsRepository $eventsRepository;
 
+    /**
+     * @var ContentObjectRenderer
+     */
+    protected ContentObjectRenderer $currentContentObject;
+
     public function __construct(
-        EventsRepository $eventsRepository
+        EventsRepository $eventsRepository,
+        ContentObjectRenderer $currentContentObject
     ) {
         $this->eventsRepository = $eventsRepository;
+        $this->currentContentObject = $currentContentObject;
     }
 
     /**
@@ -40,21 +48,20 @@ class EventsController extends ActionController
      */
     public function listAction()
     {
-        // @extensionScannerIgnoreLine
-        $configuration  = $this->configurationManager->getContentObject();
-        $data = $configuration->data;
+        // Access data directly from currentContentObject
         $currentPage = 1;
-        $itemsPerPage = (int)$this->settings['recordsPerPage'] ?? 10;
+        $itemsPerPage = (int) $this->settings['recordsPerPage'] ?? 10;
         if ($this->getCurrentVersion() <= 10) {
             $response = GeneralUtility::_GET('tx_nsevent_pi1');
         } else {
             $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
         }
-        if(!empty($response['currentPage'])) {
-            $currentPage = (int)$response['currentPage'];
+        if (!empty($response['currentPage'])) {
+            $currentPage = (int) $response['currentPage'];
         }
         $response['pluginUid'] = $response['pluginUid'] ?? '';
-        if ($response['pluginUid'] != $data['uid']) {
+
+        if (isset($data['uid']) && $response['pluginUid'] != $data['uid']) {
             $currentPage = 1;
         }
 
@@ -68,15 +75,16 @@ class EventsController extends ActionController
         $this->view->assignMultiple(
             [
                 'events' => $events,
-                'settings' => $this->settings,
-                'data' => $data,
+                'settings' => $this->settings
             ]
-        );
 
+        );
         if ($this->getCurrentVersion() >= 11) {
             return $this->htmlResponse();
         }
     }
+
+
 
     /**
      * initiatePagination
@@ -122,14 +130,14 @@ class EventsController extends ActionController
                 $response = GeneralUtility::_GET('tx_nsevent_pi2');
             }
         } else {
-            if(isset($this->request->getQueryParams()['tx_nsevent_pi1'])) {
+            if (isset($this->request->getQueryParams()['tx_nsevent_pi1'])) {
                 $response = $this->request->getQueryParams()['tx_nsevent_pi1'];
-            } elseif(isset($this->request->getQueryParams()['tx_nsevent_pi2'])) {
+            } elseif (isset($this->request->getQueryParams()['tx_nsevent_pi2'])) {
                 $response = $this->request->getQueryParams()['tx_nsevent_pi2'];
             }
         }
-        if(!empty($response['events'])) {
-            $getEvent = $this->eventsRepository->findByUid((int)$response['events']);
+        if (!empty($response['events'])) {
+            $getEvent = $this->eventsRepository->findByUid((int) $response['events']);
 
             $this->view->assignMultiple([
                 'events' => $getEvent,

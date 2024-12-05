@@ -10,10 +10,10 @@ $EM_CONF['ns_event'] = [
     'author_company' => 'T3Planet // NITSAN',
     'state' => 'stable',
     'clearCacheOnLoad' => 0,
-    'version' => '1.1.0',
+    'version' => '2.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-12.5.99',
+            'typo3' => '9.5.0-13.9.99',
         ],
         'conflicts' => [],
         'suggests' => [],

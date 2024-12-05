@@ -37,6 +37,10 @@ if (version_compare((string)$typo3VersionArray['version_main'], '9', '==')) {
         $eventsClass => 'show',
     ]
 );
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ns_event/Configuration/page.tsconfig">'
+);
+
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $icons = [
     'ns_event-plugin-pi1'

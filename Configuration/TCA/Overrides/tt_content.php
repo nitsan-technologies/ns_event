@@ -7,13 +7,17 @@ $extName = 'NsEvent';
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $extName,
     'Pi1',
-    'NS Event: List View'
+    'NS Event: List View',
+    '',
+    'plugins'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $extName,
     'Pi2',
-    'NS Event: Detail View'
+    'NS Event: Detail View',
+    '',
+    'plugins'
 );
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['nsevent_pi1'] = 'pi_flexform';

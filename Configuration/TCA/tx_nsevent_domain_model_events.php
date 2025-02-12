@@ -26,7 +26,7 @@ if (version_compare((string)$typo3VersionArray['version_main'], '11', '>=')) {
     ];
 }
 
-if (version_compare((string)$typo3VersionArray['version_main'], '11', '<')) {
+if (version_compare((string)$typo3VersionArray['version_main'], '11', '<=')) {
     $imageSettingsFalMedia = [
         
         'exclude' => true,
@@ -129,6 +129,64 @@ if (version_compare((string)$typo3VersionArray['version_main'], '11', '<')) {
     ];
 }
 
+if (version_compare((string)$typo3VersionArray['version_main'], '11', '<=')) {
+    $startDate =[
+        'exclude' => true,
+        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+        'config' => [
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true
+            ]
+        ],
+    ];
+}
+else{
+    $startDate =[
+        'exclude' => true,
+        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+        'config' => [
+            'type' => 'datetime',
+            'default' => 0,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true
+            ]
+        ],
+    ];
+}
+
+if (version_compare((string)$typo3VersionArray['version_main'], '11', '<=')) {
+    $endDate =[
+        'exclude' => true,
+        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+        'config' => [
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true
+            ]
+        ],
+    ];
+}
+else{
+    $endDate =[
+        'exclude' => true,
+        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+        'config' => [
+            'type' => 'datetime',
+            'default' => 0,
+            'behaviour' => [
+                'allowLanguageSynchronization' => true
+            ]
+        ],
+    ];
+}
+
 
 return [
     'ctrl' => [
@@ -200,35 +258,8 @@ return [
                 'type' => 'passthrough',
             ],
         ],
-        'starttime' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
-                'default' => 0,
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
-            ],
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ],
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
-            ],
-        ],
+       'starttime' => $startDate,
+       'endtime' => $endDate,
 
         'title' => [
             'exclude' => true,

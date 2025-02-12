@@ -42,12 +42,12 @@
                 <p class="event-date">
                     <f:if condition="{event.startDate}">
                         <span>
-                            <f:format.date format="d.m.Y @h:i a">{event.startDate}</f:format.date> -
+                            <f:format.date format="d.m.Y \a\t h:i a">{event.startDate}</f:format.date> -
                         </span>
                     </f:if>
                     <f:if condition="{event.endDate}">
                         <span>
-                            <f:format.date format="d.m.Y @h:i a">{event.endDate}</f:format.date>
+                            <f:format.date format="d.m.Y \a\t h:i a">{event.endDate}</f:format.date>
                         </span>
                     </f:if>
                 </p>

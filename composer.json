@@ -18,7 +18,8 @@
     "license": "GPL-2.0-or-later",
     "homepage": "https://t3planet.com/typo3-event-extension",
     "require": {
-        "typo3/cms-core": "^9 || ^10 || ^11 || ^12 || ^13"
+        "typo3/cms-core": "^9 || ^10 || ^11 || ^12 || ^13",
+        "php": ">= 7.4.0 <= 8.3.99"
     },
     "autoload": {
         "psr-4": {

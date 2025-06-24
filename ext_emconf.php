@@ -1,13 +1,13 @@
 <?php
 
 $EM_CONF['ns_event'] = [
-    'title' => 'Event Manager',
-    'description' => 'TYPO3 Event Manager is a full-featured events management extension that lets you create multiple events and get them listed on your website. TYPO3  Event Manager provides a user-friendly interface that allows you to effortlessly create and customize events. Specify event details such as date, time, location, ticket types, and more in a matter of minutes.
-    *** Live Demo: https://demo.t3planet.com/t3-extensions/pro/typo3-event-manager *** Premium Version, Documentation & Free Support: https://t3planet.com/typo3-event-extension',
+    'title' => 'TYPO3 Event Manager',
+    'description' => 'Create, manage, and display events on your TYPO3 website with ease. The extension offers features like customizable event details, ticket types, schedules, and more—all from a user-friendly backend.',
+   
     'category' => 'plugin',
-    'author' => 'T3D: Rohan Parmar, T3D:Khushi Rupera, T3D:Rushabh Makwana, QA:Krishna Dhapa',
-    'author_email' => 'sanjay@nitsan.in',
-    'author_company' => 'T3Planet // NITSAN',
+    'author' => 'Team T3Planet',
+    'author_email' => 'info@t3planet.de',
+    'author_company' => 'T3Planet',
     'state' => 'stable',
     'clearCacheOnLoad' => 0,
     'version' => '2.0.1',

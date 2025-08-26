@@ -5,7 +5,7 @@
     <body>
       <trans-unit id="recordsPerPage" resname="recordsPerPage">
         <source>Records Per Page</source>
-        <target state="needs-translation">Records Per Page</target>
+        <target state="translated">Datensätze pro Seite</target>
       </trans-unit>
       <trans-unit id="detailPageId" resname="detailPageId">
         <source>Detail Page</source>

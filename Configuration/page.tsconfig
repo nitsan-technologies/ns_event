@@ -6,8 +6,7 @@ mod {
                 title = LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_ns_event_pi1.name
                 description = LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_ns_event_pi1.description
                 tt_content_defValues {
-                    CType = list
-                    list_type = nsevent_pi1
+                    CType = nsevent_pi1
                 }
             }
             nsevent_pi2 {
@@ -15,8 +14,7 @@ mod {
                 title = LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_ns_event_pi2.name
                 description = LLL:EXT:ns_event/Resources/Private/Language/locallang_db.xlf:tx_ns_event_pi2.description
                 tt_content_defValues {
-                    CType = list
-                    list_type = nsevent_pi2
+                    CType = nsevent_pi2
                 }
             }
         }
@@ -24,3 +22,4 @@ mod {
     }
 }
 mod.web_layout.tt_content.preview.list.nsevent_pi1 = EXT:ns_event/Resources/Private/Backend/Templates/NsEventBackend/ListPluginTemplate.html
+mod.web_layout.tt_content.preview.nsevent_pi1 = EXT:ns_event/Resources/Private/Backend/Templates/NsEventBackend/ListPluginTemplatev14.html

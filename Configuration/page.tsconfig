@@ -22,4 +22,4 @@ mod {
     }
 }
 mod.web_layout.tt_content.preview.list.nsevent_pi1 = EXT:ns_event/Resources/Private/Backend/Templates/NsEventBackend/ListPluginTemplate.html
-mod.web_layout.tt_content.preview.nsevent_pi1 = EXT:ns_event/Resources/Private/Backend/Templates/NsEventBackend/ListPluginTemplatev14.html
+mod.web_layout.tt_content.preview.nsevent_pi1 = EXT:ns_event/Resources/Private/Backend/Templates/NsEventBackend/ListPluginTemplate.html

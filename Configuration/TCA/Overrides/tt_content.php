@@ -43,7 +43,7 @@ foreach ($plugins as $index => $plugin) {
     } else {
         ExtensionManagementUtility::addToAllTCAtypes(
             'tt_content',
-            '--div--;plugin,pages,',
+            '--div--;plugin,',
             $value,
             'after:subheader'
         );

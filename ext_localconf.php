@@ -5,7 +5,6 @@ defined('TYPO3') || die('Access denied');
 
     $extName = 'NsEvent';
     $eventsClass = \NITSAN\NsEvent\Controller\EventsController::class;
-// \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($signatures,'Plugin Signatures', __FILE__.' '.__LINE__);die;
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     $extName,
     'Pi1',

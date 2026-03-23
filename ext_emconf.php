@@ -10,11 +10,11 @@ $EM_CONF['ns_event'] = [
     'author_company' => 'T3Planet',
     'state' => 'stable',
     'clearCacheOnLoad' => 0,
-    'version' => '2.0.2',
+    'version' => '2.0.3',
     'constraints' => [
         'depends' => [
             'typo3' => '13.0.0-14.9.99',
-            'php' => '>=8.4.0',
+            'php' => '>=8',
         ],
         'conflicts' => [],
         'suggests' => [],

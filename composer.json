@@ -19,7 +19,7 @@
     "homepage": "https://t3planet.com/typo3-event-extension",
     "require": {
         "typo3/cms-core": "^13 || ^14 ",
-        "php": ">= 8"
+        "php" : '7.4.0-8.4
     },
     "autoload": {
         "psr-4": {

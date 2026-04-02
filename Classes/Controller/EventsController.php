@@ -51,11 +51,7 @@ class EventsController extends ActionController
         // Access data directly from currentContentObject
         $currentPage = 1;
         $itemsPerPage = (int) $this->settings['recordsPerPage'] ?? 10;
-        if ($this->getCurrentVersion() <= 10) {
-            $response = GeneralUtility::_GET('tx_nsevent_pi1');
-        } else {
             $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
-        }
         if (!empty($response['currentPage'])) {
             $currentPage = (int) $response['currentPage'];
         }
@@ -79,9 +75,7 @@ class EventsController extends ActionController
             ]
 
         );
-        if ($this->getCurrentVersion() >= 11) {
             return $this->htmlResponse();
-        }
     }
 
 
@@ -123,31 +117,20 @@ class EventsController extends ActionController
     {
         $response = [];
 
-        if ($this->getCurrentVersion() <= 10) {
-            if(!empty(GeneralUtility::_GET('tx_nsevent_pi1'))) {
-                $response = GeneralUtility::_GET('tx_nsevent_pi1');
-            } elseif(!empty(GeneralUtility::_GET('tx_nsevent_pi2'))) {
-                $response = GeneralUtility::_GET('tx_nsevent_pi2');
-            }
-        } else {
             if (isset($this->request->getQueryParams()['tx_nsevent_pi1'])) {
                 $response = $this->request->getQueryParams()['tx_nsevent_pi1'];
             } elseif (isset($this->request->getQueryParams()['tx_nsevent_pi2'])) {
                 $response = $this->request->getQueryParams()['tx_nsevent_pi2'];
             }
-        }
         if (!empty($response['events'])) {
             $getEvent = $this->eventsRepository->findByUid((int) $response['events']);
 
             $this->view->assignMultiple([
-                'events' => $getEvent,
-                // @extensionScannerIgnoreLine
-                'currantPage' => $GLOBALS['TSFE']->id,
-            ]);
+            'events' => $getEvent,
+            'currantPage' => $this->request->getAttribute('frontend.page.information')->getId(),
+        ]);
         }
-        if ($this->getCurrentVersion() >= 11) {
             return $this->htmlResponse();
-        }
     }
 
     /**

@@ -14,7 +14,7 @@ $EM_CONF['ns_event'] = [
     'constraints' => [
         'depends' => [
             'typo3' => '13.0.0-14.9.99',
-            'php' => '7.4.0-8.4.0',
+            'php' => '7.4.0-8.5.0',
         ],
         'conflicts' => [],
         'suggests' => [],

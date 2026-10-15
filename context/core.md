@@ -34,6 +34,9 @@
 - Frontend sources: `Resources/Public/public/` (webpack project with `src/`, `dist/`, `package.json`);
   only `dist/assets/` is loaded.
 - CI: `.github/workflows/ter-release.yml` only (publishes tags to TER).
+- `.gitattributes` export-ignores `.crowdin.yml`, `.github/`, `.gitignore`, `AGENTS.md`, `CLAUDE.md`, `context/`,
+  `tasks/` and itself, so they are not in the GitHub/Composer archive or the TER package (the TER release uploads
+  the GitHub tag archive).
 - Translations: Crowdin (`.crowdin.yml`), source files `Resources/Private/Language/*.xlf`.
 
 ## Conventions

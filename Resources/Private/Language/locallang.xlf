@@ -21,6 +21,15 @@
 			<trans-unit id="tx_nsevent_domain_model_events.description" resname="tx_nsevent_domain_model_events.description">
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="premium.strip.headline" resname="premium.strip.headline">
+				<source>You're using the free version of NS Event</source>
+			</trans-unit>
+			<trans-unit id="premium.strip.description" resname="premium.strip.description">
+				<source>Unlock premium features and get more out of NS Event.</source>
+			</trans-unit>
+			<trans-unit id="premium.strip.trial" resname="premium.strip.trial">
+				<source>Start Free Trial</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

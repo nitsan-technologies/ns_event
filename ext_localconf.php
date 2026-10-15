@@ -29,3 +29,9 @@ defined('TYPO3') || die('Access denied');
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeResolver'][1791974738] = [
+    'nodeName' => 'flexFormNoTabsContainer',
+    'priority' => 41,
+    'class' => \NITSAN\NsEvent\Form\Resolver\PremiumStripFlexFormNoTabsContainerResolver::class,
+];

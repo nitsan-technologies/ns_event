@@ -50,8 +50,11 @@ class EventsController extends ActionController
     {
         // Access data directly from currentContentObject
         $currentPage = 1;
-        $itemsPerPage = (int) $this->settings['recordsPerPage'] ?? 10;
-            $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
+        $itemsPerPage = (int)($this->settings['recordsPerPage'] ?? 10);
+        if ($itemsPerPage < 1) {
+            $itemsPerPage = 10;
+        }
+        $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
         if (!empty($response['currentPage'])) {
             $currentPage = (int) $response['currentPage'];
         }
@@ -115,15 +118,34 @@ class EventsController extends ActionController
      */
     public function showAction()
     {
-        $response = [];
-
-            if (isset($this->request->getQueryParams()['tx_nsevent_pi1'])) {
-                $response = $this->request->getQueryParams()['tx_nsevent_pi1'];
-            } elseif (isset($this->request->getQueryParams()['tx_nsevent_pi2'])) {
-                $response = $this->request->getQueryParams()['tx_nsevent_pi2'];
+        $queryParams = $this->request->getQueryParams();
+        $sources = [
+            $this->request->getArguments(),
+            is_array($queryParams['tx_nsevent_pi2'] ?? null) ? $queryParams['tx_nsevent_pi2'] : [],
+            is_array($queryParams['tx_nsevent_pi1'] ?? null) ? $queryParams['tx_nsevent_pi1'] : [],
+        ];
+        $eventUid = 0;
+        foreach ($sources as $source) {
+            foreach (['events', 'event'] as $argumentName) {
+                if (!isset($source[$argumentName]) || $source[$argumentName] === '') {
+                    continue;
+                }
+                $candidate = $source[$argumentName];
+                if (is_object($candidate) && method_exists($candidate, 'getUid')) {
+                    $candidate = (int)$candidate->getUid();
+                } elseif (is_array($candidate) && isset($candidate['uid'])) {
+                    $candidate = (int)$candidate['uid'];
+                } else {
+                    $candidate = (int)$candidate;
+                }
+                if ($candidate > 0) {
+                    $eventUid = $candidate;
+                    break 2;
+                }
             }
-        if (!empty($response['events'])) {
-            $getEvent = $this->eventsRepository->findByUid((int) $response['events']);
+        }
+        if ($eventUid > 0) {
+            $getEvent = $this->eventsRepository->findByUid($eventUid);
 
             $this->view->assignMultiple([
             'events' => $getEvent,

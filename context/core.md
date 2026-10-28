@@ -17,9 +17,12 @@
 
 | Source | TYPO3 | PHP |
 |---|---|---|
-| `ext_emconf.php` | `13.0.0-14.9.99` | `8.2.0-8.99.99` |
-| `composer.json` | `^13 \|\| ^14` | `^8.2` |
-| ns_license 14.5.4 (dependency) | `12.4.18-14.9.99` | — |
+| `ext_emconf.php` | `13.0.0-14.9.99` | `8.2.0-8.5.99` |
+| `composer.json` | `^13 \|\| ^14` | `>=8.2 <8.6` |
+| ns_license 14.5.4 (dependency) | `12.4.18-14.9.99` | `>=8.1 <8.6` |
+
+- Effective range is **TYPO3 13–14** and **PHP 8.2–8.5** (official TYPO3×PHP matrix for v13/v14). Range is capped at 8.5; 8.6 is not claimed.
+- Live-verified 2026-10-28: list plugin, pagination and detail plugin on **TYPO3 13.4.35** and **TYPO3 14.3.7**, each on PHP **8.2, 8.3, 8.4 and 8.5** (DDEV). No PHP deprecations from `Classes/` or `Configuration/`. Smoke test: `Tests/run-live-smoke.php`.
 
 ## Dependencies
 

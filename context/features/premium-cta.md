@@ -23,8 +23,8 @@ Same implementation pattern as ns_revolution_slider (`Classes/Backend/PremiumStr
 - Wording and design are the team-wide standard from the 2026-10-14 review: "You're using the free version of
   [Extension Name]" / "Unlock premium features and get more out of [Extension Name]."
 - Labels in `locallang.xlf`:
-  - `premium.strip.headline`: "You're using the free version of NS Event"
-  - `premium.strip.description`: "Unlock premium features and get more out of NS Event."
+  - `premium.strip.headline`: "You're using the free version of Event"
+  - `premium.strip.description`: "Unlock premium features and get more out of Event."
   - `premium.strip.trial`: "Start Free Trial"
 - Styling: `.ns-event-premium-strip` (+ `-icon`, `-headline`, `-description`) in
   `Resources/Public/Css/backend-premium-strip.css` — light-blue card (`#e7f2fc`, border `#8eb6e8`, 4px `#2b6cb0`
@@ -41,7 +41,7 @@ Same implementation pattern as ns_revolution_slider (`Classes/Backend/PremiumStr
    `FlexFormNoTabsContainer`, prepends the strip and adds the stylesheet via `stylesheetFiles`.
    - Priority must be unique per node name across all installed extensions: core's `NodeFactory` throws
      #1433155705 "already has a resolver registered with priority …". Taken: ns_news_comments 40,
-     ns_event 41, ns_gallery 42, ns_helpdesk 43, ns_social_login 44, ns_faq 45, ns_open_streetmap 46. Each resolver returns `null` for foreign plugins, so they chain safely.
+     ns_event 41, ns_gallery 42, ns_helpdesk 43, ns_social_login 44, ns_faq 45, ns_open_streetmap 46, ns_comments 47, ns_timeline 48, ns_all_sliders 49. Each resolver returns `null` for foreign plugins, so they chain safely.
    - If the FlexForm ever gets a second sheet, switch to `flexFormTabsContainer` as in ns_revolution_slider.
 2. **Page module preview.** `<ne:be.premiumStrip />` at the top of `ListPluginTemplate.html` (v13) and
    `ListPluginTemplatev14.html` (v14); `PremiumStripViewHelper` adds the CSS via `PageRenderer::addCssFile()`.

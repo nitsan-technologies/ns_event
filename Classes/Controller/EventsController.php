@@ -6,7 +6,6 @@ namespace NITSAN\NsEvent\Controller;
 
 use Doctrine\DBAL\Exception;
 use NITSAN\NsEvent\Domain\Repository\EventsRepository;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
@@ -29,17 +28,9 @@ class EventsController extends ActionController
      */
     protected EventsRepository $eventsRepository;
 
-    /**
-     * @var ContentObjectRenderer
-     */
-    protected ContentObjectRenderer $currentContentObject;
-
-    public function __construct(
-        EventsRepository $eventsRepository,
-        ContentObjectRenderer $currentContentObject
-    ) {
+    public function __construct(EventsRepository $eventsRepository)
+    {
         $this->eventsRepository = $eventsRepository;
-        $this->currentContentObject = $currentContentObject;
     }
 
     /**
@@ -48,25 +39,23 @@ class EventsController extends ActionController
      */
     public function listAction()
     {
-        // Access data directly from currentContentObject
         $currentPage = 1;
-        $itemsPerPage = (int)($this->settings['recordsPerPage'] ?? 10);
-        if ($itemsPerPage < 1) {
-            $itemsPerPage = 10;
-        }
+        $itemsPerPage = (int)($this->settings['recordsPerPage'] ?? 10) ?: 10;
+        $data = $this->getCurrentContentObjectData();
         $response = $this->request->getQueryParams()['tx_nsevent_pi1'] ?? [];
         if (!empty($response['currentPage'])) {
-            $currentPage = (int) $response['currentPage'];
+            $currentPage = (int)$response['currentPage'];
         }
-        $response['pluginUid'] = $response['pluginUid'] ?? '';
-
-        if (isset($data['uid']) && $response['pluginUid'] != $data['uid']) {
+        $pluginUid = (int)($response['pluginUid'] ?? 0);
+        $contentUid = (int)($data['uid'] ?? 0);
+        if ($contentUid > 0 && $pluginUid > 0 && $pluginUid !== $contentUid) {
             $currentPage = 1;
         }
 
         $offset = ($currentPage - 1) * $itemsPerPage;
-        $allEvents = $this->eventsRepository->fetchData();
-        $events = $this->eventsRepository->fetchData($offset, $itemsPerPage);
+        $pluginSettings = $this->getPluginSettings();
+        $allEvents = $this->eventsRepository->fetchData(null, null, $pluginSettings);
+        $events = $this->eventsRepository->fetchData($offset, $itemsPerPage, $pluginSettings);
         $countEvents = count($allEvents);
 
         $this->initiatePagination($countEvents, $itemsPerPage, $currentPage);
@@ -74,14 +63,12 @@ class EventsController extends ActionController
         $this->view->assignMultiple(
             [
                 'events' => $events,
-                'settings' => $this->settings
+                'settings' => $this->settings,
+                'data' => $data,
             ]
-
         );
-            return $this->htmlResponse();
+        return $this->htmlResponse();
     }
-
-
 
     /**
      * initiatePagination
@@ -145,14 +132,45 @@ class EventsController extends ActionController
             }
         }
         if ($eventUid > 0) {
-            $getEvent = $this->eventsRepository->findByUid($eventUid);
+            $getEvent = $this->eventsRepository->findPublishedByUid($eventUid);
+            $pageInformation = $this->request->getAttribute('frontend.page.information');
+            $currentPageId = is_object($pageInformation) && method_exists($pageInformation, 'getId')
+                ? $pageInformation->getId()
+                : 0;
 
             $this->view->assignMultiple([
-            'events' => $getEvent,
-            'currantPage' => $this->request->getAttribute('frontend.page.information')->getId(),
-        ]);
+                'events' => $getEvent,
+                'currantPage' => $currentPageId,
+            ]);
         }
-            return $this->htmlResponse();
+        return $this->htmlResponse();
+    }
+
+    /**
+     * Merge plugin TypoScript/FlexForm settings with the record storage folder.
+     */
+    protected function getPluginSettings(): array
+    {
+        $settings = $this->settings;
+        $data = $this->getCurrentContentObjectData();
+        if (($settings['pages'] ?? '') === '' && ($data['pages'] ?? '') !== '') {
+            $settings['pages'] = $data['pages'];
+        }
+        return $settings;
+    }
+
+    /**
+     * Current plugin tt_content row from the request (not constructor-injected CObj).
+     *
+     * @return array<string, mixed>
+     */
+    protected function getCurrentContentObjectData(): array
+    {
+        $currentContentObject = $this->request->getAttribute('currentContentObject');
+        if ($currentContentObject instanceof ContentObjectRenderer && is_array($currentContentObject->data ?? null)) {
+            return $currentContentObject->data;
+        }
+        return [];
     }
 
     /**

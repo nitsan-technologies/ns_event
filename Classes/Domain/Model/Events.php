@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace NITSAN\NsEvent\Domain\Model;
 
-use TYPO3\CMS\Exebase\Persistence\ObjectStorage;
-
 /**
  * This file is part of the "Event" Extension for TYPO3 CMS.
  *

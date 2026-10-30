@@ -165,6 +165,7 @@ return [
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
         'enablecolumns' => [
+            'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
@@ -187,6 +188,7 @@ return [
                     sys_language_uid, 
                     l10n_parent, l10n_diffsource,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, 
+                    hidden,
                     starttime, 
                     endtime, 
             '],
@@ -200,7 +202,7 @@ return [
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:sLGL.language',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => $languageConfig
         ],
         'l10n_parent' => [
@@ -220,6 +222,21 @@ return [
         'l10n_diffsource' => [
             'config' => [
                 'type' => 'passthrough',
+            ],
+        ],
+        'hidden' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'default' => 0,
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ],
+                ],
             ],
         ],
        'starttime' => $startDate,

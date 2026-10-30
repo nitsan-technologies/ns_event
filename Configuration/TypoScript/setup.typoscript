@@ -1,6 +1,9 @@
 @import 'EXT:ns_event/Configuration/TypoScript/page.typoscript'
 plugin {
     tx_nsevent_pi1 {
+        settings {
+            recordsPerPage = 10
+        }
         view {
             templateRootPaths {
                 0 = EXT:ns_event/Resources/Private/Templates/

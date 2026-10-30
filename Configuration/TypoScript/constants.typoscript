@@ -13,3 +13,13 @@ plugin.tx_nsevent_pi1 {
         layoutRootPath = EXT:ns_event/Resources/Private/Layouts/
     }
 }
+plugin.tx_nsevent_pi2 {
+    view {
+        # cat=plugin.tx_nsevent_pi2/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:ns_event/Resources/Private/Templates/
+        # cat=plugin.tx_nsevent_pi2/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:ns_event/Resources/Private/Partials/
+        # cat=plugin.tx_nsevent_pi2/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:ns_event/Resources/Private/Layouts/
+    }
+}

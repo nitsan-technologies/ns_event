@@ -3,10 +3,17 @@
 The repo has no PHPUnit, PHPStan or CS config. Available checks:
 
 ```bash
-# PHP syntax, once per installed PHP version (8.2+)
+# PHP syntax, once per supported PHP version (8.2–8.5)
 for f in $(find . -name "*.php" -not -path "./.git/*"); do php -l "$f"; done
 
 composer validate --no-check-publish
+
+# Live smoke (needs a booted TYPO3 13/14 instance; creates then tears down test pages)
+ddev exec php typo3conf/ext/ns_event/Tests/run-live-smoke.php setup
+ddev exec php typo3/sysext/core/bin/typo3 cache:flush
+ddev exec php typo3conf/ext/ns_event/Tests/run-live-smoke.php check
+ddev exec php typo3conf/ext/ns_event/Tests/run-live-smoke.php teardown
+ddev exec php typo3/sysext/core/bin/typo3 cache:flush
 
 # XLF well-formedness
 for f in Resources/Private/Language/*.xlf; do xmllint --noout "$f"; done

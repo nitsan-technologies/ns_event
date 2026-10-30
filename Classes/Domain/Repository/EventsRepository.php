@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NITSAN\NsEvent\Domain\Repository;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -20,9 +22,22 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class EventsRepository extends Repository
 {
-    public function fetchData($offset = null, $per_page = null)
+    /**
+     * @param int|null $offset
+     * @param int|null $per_page
+     * @param array $settings
+     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface|array
+     */
+    public function fetchData($offset = null, $per_page = null, array $settings = [])
     {
-        $query =  $query = $this->createQuery();
+        $query = $this->createQuery();
+        $this->applyStoragePageSettings($query, $settings);
+        $query->matching(
+            $query->logicalOr(
+                $query->equals('endDate', 0),
+                $query->greaterThanOrEqual('endDate', time())
+            )
+        );
         if ($offset) {
             $query->setOffset($offset);
         }
@@ -30,5 +45,31 @@ class EventsRepository extends Repository
             $query->setLimit($per_page);
         }
         return $query->execute();
+    }
+
+    /**
+     * Load a frontend-visible event by uid (respects hidden/starttime/endtime).
+     */
+    public function findPublishedByUid(int $uid)
+    {
+        if ($uid < 1) {
+            return null;
+        }
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(false);
+        $query->matching($query->equals('uid', $uid));
+        return $query->execute()->getFirst();
+    }
+
+    /**
+     * @param QueryInterface $query
+     * @param array $settings
+     */
+    protected function applyStoragePageSettings(QueryInterface $query, array $settings): void
+    {
+        $storagePages = GeneralUtility::intExplode(',', (string)($settings['pages'] ?? ''), true);
+        if ($storagePages !== []) {
+            $query->getQuerySettings()->setStoragePageIds($storagePages);
+        }
     }
 }
